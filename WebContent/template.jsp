@@ -16,6 +16,9 @@
 	<h1 class="title">
 		Train Reservation System
 	</h1>
-	
+	<%
+		String stopsInfo = (String) request.getParameter("stopNames");
+		String schedulesInfo = (String) request.getParameter("stopNames");
+	%>
 </body>
 </html>

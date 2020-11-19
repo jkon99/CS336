@@ -52,6 +52,11 @@ body {
   color: #A64AC9;
 }
 
+span{
+	display: block;
+	margin: 5px 0px;
+}
+
 .loggedin{
 	font-weight: bold;
 	color: green;
