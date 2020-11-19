@@ -18,6 +18,9 @@
 	</h1>
 	<div class="loginForm">
 	  <form method="post" action="checkLoginDetails.jsp">
+	  <h2>
+	  	Customer Login
+	  </h2>
       <h2>
         One Account. <br/>
         All the Train Data.

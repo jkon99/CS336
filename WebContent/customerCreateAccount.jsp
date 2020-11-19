@@ -19,22 +19,23 @@
 	<div class="loginForm">
 	  <form method="post" action="checkLoginDetails.jsp">
       <h2>
-        One Account. <br/>
-        All the Train Data.
+        Customer Account
+        </br>
+        Creation
       </h2>
       <p>
         Please fill out the form and click SIGN UP to create your customer account!
       </p>
       <label for="firstName">First Name</label>
-      <input class="passwordForm" name="firstName" id="firstName" placeholder="First Name" required/>
+      <input class="passwordForm" name="firstName" id="firstName" placeholder="First Name" maxlength="20" required/>
       <label for="lastName">Last Name</label>
-      <input class="passwordForm" name="lastName" id="lastName" placeholder="Last Name" required/>
+      <input class="passwordForm" name="lastName" id="lastName" placeholder="Last Name" maxlength="20" required/>
       <label for="username">Username</label>
-      <input class ="usernameForm" name="username" id="username" placeholder="Username" required autofocus/>
+      <input class ="usernameForm" name="username" id="username" placeholder="Username" maxlength="20" required autofocus/>
       <label for="password">Password</label>
-      <input type="password" class="passwordForm" name="password"  id="password" placeholder="Password" required/>
+      <input type="password" class="passwordForm" name="password"  id="password" placeholder="Password" maxlength="20" required/>
       <label for="email">Email</label>
-      <input type="email" class="passwordForm" name="email"  id="email" placeholder="email@email.com" required/>
+      <input type="email" class="passwordForm" name="email"  id="email" placeholder="email@email.com" maxlength="30" required/>
 			<div class="submitButton">
         	<button type="submit" name="create">
 					Sign up
