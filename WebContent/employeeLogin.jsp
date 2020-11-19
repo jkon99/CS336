@@ -24,7 +24,7 @@
       </h2>
       <p>
         Login to access your account. <br/>
-        If you would like to create a customer account, please go <a href="customerCreateAccount.jsp">here</a>.
+        If you would like to create a employee account, please go <a href="employeeCreateAccount.jsp">here</a>.
       </p>
       
       <label for="username">Username</label>
@@ -36,7 +36,8 @@
 					Login
 				</button> 
 			</div>
-			To create or login to an employee account: please go <a href="employeeLogin.jsp">here</a>.
+			<input style="display: none;" type="radio" name="employee" checked/>
+			To create or login to an customer account: please go <a href="login.jsp">here</a>.
 		</form>
 		
 	</div>

@@ -23,18 +23,23 @@
         All the Train Data.
       </h2>
       <p>
-        Login to access your account. <br/>
-        If you would like to create a customer account, please go <a href="customerCreateAccount.jsp">here</a>.
+        Please fill out the form and click SIGN UP to create your employee account!
       </p>
-      
+      <label for="firstName">First Name</label>
+      <input class="passwordForm" name="firstName" id="firstName" placeholder="First Name" required/>
+      <label for="lastName">Last Name</label>
+      <input class="passwordForm" name="lastName" id="lastName" placeholder="Last Name" required/>
       <label for="username">Username</label>
       <input class ="usernameForm" name="username" id="username" placeholder="Username" required autofocus/>
       <label for="password">Password</label>
       <input type="password" class="passwordForm" name="password"  id="password" placeholder="Password" required/>
+      <label for="ssn">SSN</label>
+      <input class="passwordForm" name="ssn"  id="ssn" placeholder="XXXXXXXXX" required/>
+      <input style="display: none;" type="radio" name="employee" checked/>
 			<div class="submitButton">
-				<button type="submit" name="login" >
-					Login
-				</button> 
+        	<button type="submit" name="create">
+					Sign up
+			</button>
 			</div>
 			To create or login to an employee account: please go <a href="employeeLogin.jsp">here</a>.
 		</form>
