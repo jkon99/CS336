@@ -53,6 +53,28 @@
 					<button type="submit"> Search</button>
 				</form>
 			</div>
+			<div>
+				<h2>
+					Create Reservation
+				</h2>
+					To create a reservation, please click <a href="createReservation.jsp">here</a>.
+			</div>
+			<div>
+				<h2>
+					View Reservations
+				</h2>
+					To view your reservations, please click <a href="viewReservation.jsp">here</a>.
+			</div>
+			<div>
+				<h2>
+					Cancel Reservations
+				</h2>
+				<form method="post" action="deleteReservation.jsp">
+					<label for="resID"> Reservation IDs (comma separated)</label>
+					<input id="resID" name="resID" required/>
+					<button type="submit"> Delete </button>
+				</form>
+			</div>
 		<% }else if(((String) session.getAttribute("role")).toLowerCase().equals("employee") || ((String) session.getAttribute("role")).toLowerCase().equals("admin")) { %>
 			<div>
 				<h2>
