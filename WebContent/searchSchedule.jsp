@@ -92,6 +92,11 @@
 			System.out.println("Something went wrong with the query");
 			System.out.println(e);
 		}
+		%>
+		<h2>
+			Showing all the stops associated with each schedule:
+		</h2>
+		<%
 		insert = "select * from Stop where originStationID = ? and destinationStationID = ? and transitLineName = ?;";
 		insertUser = con.prepareStatement(insert);
 		for(String transitLineName : transitLineNames){
