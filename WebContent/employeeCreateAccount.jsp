@@ -8,7 +8,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Train Reservation Login Page</title>
+<title>Employee Account Creation</title>
 <link rel="stylesheet" href="login.css">
 </head>
 

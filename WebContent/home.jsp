@@ -37,6 +37,74 @@
 		Logged in as <%= session.getAttribute("username")%>
 		</p>
 	</div>
+		<% if(((String) session.getAttribute("role")).toLowerCase().equals("customer")){ %>
+			<div>
+				<h2>
+					Search the Train Schedules
+				</h2>
+				<form>
+					<label for="originStation" > Origin Station</label>
+					<input id="originStation"/>
+					<label for="destinationStation" > Destination Station</label>
+					<input id="destinationStation" name="destinationStation"/>
+					<label for="travelDate" > Date of Travel</label>
+					<input id="travelDate"/>
+				</form>
+			</div>
+		<% }else if(((String) session.getAttribute("role")).toLowerCase().equals("employee")) { %>
+			<div>
+				<h2>
+					Create Trains
+				</h2>
+				<form method="post" action="createTrain.jsp">
+					<label for="trains">Train ID</label>
+					<input id="trainID" name="trainID" required/>
+					<br/>
+					<button type="submit"> Create </button>
+				</form>
+				<h2>
+					Create Stations
+				</h2>
+				<form method="post" action="createStation.jsp">
+					<label for="stationID">Station ID</label>
+					<input id="stationID" name="stationID" required/>
+					<label for="stationName">Station Name</label>
+					<input id="stationName" name="stationName" required/>
+					<label for="state">State</label>
+					<input id="state" name="state" required/>
+					<label for="city">City</label>
+					<input id="city" name="city" required/>
+					</br>
+					<button type="submit"> Create </button>
+				</form>
+				<h2>
+					Create Schedules
+				</h2>
+				<form method="post" action="createSchedule.jsp">
+					<label for="transitLineName">Transit Line Name</label>
+					<input id="transitLineName" name="transitLineName" required/>
+					<label for="trainID">Train ID</label>
+					<input id="trainID" name="trainID" required/>
+					<label for="originStationID">Origin Station ID</label>
+					<input id="originStationID" name="originStationID" required/>
+					<label for="destinationStationID">Destination Station ID</label>
+					<input id="destinationStationID" name="destinationStationID" required/>
+					<label for="departTime">Depart Time</label>
+					<input id="departTime" name="departTime" placeholder="HH:MM:SS" required/>
+					<label for="arrivalTime">Arrival Time</label>
+					<input id="arrivalTime" name="arrivalTime" placeholder="HH:MM:SS" required/>
+					<label for="tripType">Trip Type</label>
+					<input id="tripType" name="tripType" required/>
+					<label for="fixedFare">fixedFare</label>
+					<input id="fixedFare" name="fixedFare" required/>
+					</br>
+					<button type="submit"> Create </button>
+				</form>
+			</div>
+		<% }else{ // Admin
+			
+		} %>
+	
 		<% if(((String) session.getAttribute("username")).toLowerCase().equals("admin")){ %>
 			<p>Fetching all username and passwords for ADMIN</p>
 			<%

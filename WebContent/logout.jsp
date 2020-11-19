@@ -13,8 +13,14 @@
 <body>
 	<%
 		System.out.println("Invaliding the session for this user (FROM SERVER)");
+		String role = (String) session.getAttribute("role");
 		session.invalidate();
-		response.setHeader("Refresh", "5;url=login.jsp");
+		if(role.equals("employee")){
+			response.setHeader("Refresh", "5;url=employeeLogin.jsp");
+		}else{
+			response.setHeader("Refresh", "5;url=login.jsp");
+		}
+		
 	%>
 	<h1 class="title">
 	    Train Reservation System
@@ -23,7 +29,10 @@
 	    Successfully logged out, automatically redirecting to login page in 5 seconds! 
 	</div>
 	<p>
-	  Login again <a href='login.jsp'>here</a>.
+	  Customer Login <a href='login.jsp'>here</a>.
+  	</p>
+  	<p>
+  	  Employee Login <a href='employeeLogin.jsp'>here</a>.
   	</p>
 </body>
 </html>
