@@ -19,7 +19,7 @@
 	<div class="loginForm">
 	  <form method="post" action="checkLoginDetails.jsp">
 	  <h2>
-	  	Employee Login
+	  	Admin Login
 	  </h2>
       <h2>
         One Account. <br/>
@@ -27,7 +27,7 @@
       </h2>
       <p>
         Login to access your account. <br/>
-        If you would like to create a employee account, please go <a href="employeeCreateAccount.jsp">here</a>.
+        If you would like to create an admin account, please use the Database.
       </p>
       
       <label for="username">Username</label>
@@ -39,10 +39,10 @@
 					Login
 				</button> 
 			</div>
-			<input style="display: none;" type="radio" name="employee" checked/>
+			<input style="display: none;" type="radio" name="admin" checked/>
 			To create or login to an customer account: please go <a href="login.jsp">here</a>.
 			<br/>
-			To login to an admin account: please go <a href="adminLogin.jsp">here</a>.
+			To create or login to an employee account: please go <a href="employeeLogin.jsp">here</a>.
 		</form>
 		
 	</div>

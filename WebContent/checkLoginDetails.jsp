@@ -26,6 +26,7 @@
 		String lastName = request.getParameter("lastName");
 		String ssn = request.getParameter("ssn");
 		boolean isEmployee = false;
+		
 		if(request.getParameter("employee") == null){
 			System.out.println("Not Employee");
 			isEmployee = false;
@@ -33,6 +34,16 @@
 			System.out.println("Employee");
 			isEmployee = true;
 		}
+		
+		boolean isAdmin = false;
+		if(request.getParameter("admin") == null){
+			System.out.println("Not admin");
+			isAdmin = false;
+		}else{
+			System.out.println("Admin");
+			isAdmin = true;
+		}
+		
 		if(username.isEmpty() || password.isEmpty()){
 			out.println("<div class=\"errorMessage\"> Please enter a non-empty username and password, redirecting to login page in 5 seconds </div>");
 			if(isEmployee){
@@ -100,7 +111,7 @@
 			}else{
 				out.println("ERROR: please click <a href='employeeLogin.jsp'> here </a> to go back to login form.");
 			}
-		}else{
+		}else if(isAdmin == false){
 			if(request.getParameter("create") != null){
 				System.out.println("Create Button Pressed");
 				System.out.println("Inserting " + username + " with password " + password);
@@ -152,6 +163,26 @@
 			}else{
 				out.println("ERROR: please click <a href='login.jsp'> here </a> to go back to login form.");
 			}
+		}else{
+			System.out.println("Admin Login");
+			Statement stmt = con.createStatement(); 
+			String getUser = "select * from admin where username = '" + username + "' and password = '" + password + "';";
+			System.out.println(getUser);
+			ResultSet users = stmt.executeQuery(getUser);
+			if(users.next()){
+				System.out.println("Succesfully found a user for this: redirecting to home page");
+				session.setAttribute("username", username);
+				session.setAttribute("password", password);
+				session.setAttribute("role", "admin");
+				response.sendRedirect("home.jsp");
+			}else{
+				System.out.println("No user found for the details entered, redirecting to login page");
+				out.println("<div class=\"errorMessage\"> Invalid Credentials! Redirecting back to login page </div>");
+				response.setHeader("Refresh", "5;url=adminLogin.jsp");
+			}
+			System.out.println("Reached after login");
+			users.close();
+			stmt.close();
 		}
 
 		con.close();

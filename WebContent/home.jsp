@@ -53,7 +53,7 @@
 					<button type="submit"> Search</button>
 				</form>
 			</div>
-		<% }else if(((String) session.getAttribute("role")).toLowerCase().equals("employee")) { %>
+		<% }else if(((String) session.getAttribute("role")).toLowerCase().equals("employee") || ((String) session.getAttribute("role")).toLowerCase().equals("admin")) { %>
 			<div>
 				<h2>
 					Create Trains
@@ -138,54 +138,6 @@
 		<% }else{ // Admin
 			
 		} %>
-	
-		<% if(((String) session.getAttribute("username")).toLowerCase().equals("admin")){ %>
-			<p>Fetching all username and passwords for ADMIN</p>
-			<%
-			try{
-				ApplicationDB db = new ApplicationDB();	
-				Connection con = db.getConnection();
-				String getAllLogins = "select * from user;";
-				Statement stmt = con.createStatement();
-				ResultSet users = stmt.executeQuery(getAllLogins); %>
-				<table class="fancyTable">	
-						<caption>Login details of all users</caption>
-						<colgroup>
-							<col>
-							<col>
-							<col>
-						</colgroup>
-						<thead>
-							<tr>
-								<th>Username</th>
-								<th>Password</th>
-								<th>Access Level</th>
-							</tr>
-						</thead>
-						<tbody>
-						<% 
-				while(users.next()){ %>
-						<tr>
-							<td class="username"> <%= users.getString("username") %></td>
-							<td class="password"> <%= users.getString("password") %></td>
-							<td> <%= users.getString("role") %></td>
-						</tr>
-			<%	}%>
-				</tbody>
-				</table> <% 
-				System.out.println("Closing all connections to db");
-				users.close();
-				stmt.close();
-				con.close();
-			}catch(Exception e){
-				System.out.println("Connection Failed or some error occurred while fetching all users");
-				System.out.println(e);
-			}
-			%>
-			
-		<% }else{
-			
-		} %> 
 	
 </body>
 </html>

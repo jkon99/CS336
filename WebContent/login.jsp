@@ -40,6 +40,8 @@
 				</button> 
 			</div>
 			To create or login to an employee account: please go <a href="employeeLogin.jsp">here</a>.
+			<br/>
+			To login to an admin account: please go <a href="adminLogin.jsp">here</a>.
 		</form>
 		
 	</div>
