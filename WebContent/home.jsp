@@ -44,11 +44,11 @@
 				</h2>
 				<form method="post" action="searchSchedule.jsp">
 					<label for="originStation" > Origin Station ID</label>
-					<input id="originStation" name="originStationID"/>
+					<input id="originStation" name="originStationID" required/>
 					<label for="destinationStation" > Destination Station ID</label>
-					<input id="destinationStation" name="destinationStationID"/>
+					<input id="destinationStation" name="destinationStationID" required/>
 					<label for="travelDate" > Date of Travel</label>
-					<input id="travelDate" name="travelDatetime" placeholder="YYYY-MM-DD hh:mm:ss"/>
+					<input id="travelDate" name="travelDatetime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
 					<br/>
 					<button type="submit"> Search</button>
 				</form>
