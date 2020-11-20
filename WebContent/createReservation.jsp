@@ -9,7 +9,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Schedule Creation</title>
+<title>Reservation Creation</title>
 <link rel="stylesheet" href="home.css">
 </head>
 <body>
@@ -84,7 +84,71 @@
 			System.out.println(e);
 			out.println("Query Failed! Please retry");
 		}
-		
+		%>
+		<div>
+			<h2>
+				Active Reservations
+			</h2>
+		<%
+			query = "select * from Reservation where active=true and username='" + session.getAttribute("username") + "';";
+			System.out.println(query);
+			try{
+				ResultSet result = stmt.executeQuery(query);
+				%>
+				<table class="fancyTable">	
+				<caption>Active Reservations</caption>
+				<colgroup>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+					<col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>Reservation ID</th>
+						<th>Reservation Date</th>
+						<th>Username</th>
+						<th>Transit Line Name</th>
+						<th>Train ID</th>
+						<th>Origin Station ID</th>
+						<th>Destination Station ID</th>
+						<th>Depart Time</th>
+						<th>Depart Date</th>
+						<th>Total Fare</th>
+						<th>Active</th>
+					</tr>
+				</thead>
+				<tbody>
+				<% 
+				while(result.next()){ %>
+						<tr>
+							<td> <%= result.getString("reservationNumber") %></td>
+							<td> <%= result.getString("reservationDate") %></td>
+							<td> <%= result.getString("username") %></td>
+							<td> <%= result.getString("transitLineName") %></td>
+							<td> <%= result.getString("trainID") %></td>
+							<td> <%= result.getString("originStationID") %></td>
+							<td> <%= result.getString("destinationStationID") %></td>
+							<td> <%= result.getString("departureTime") %></td>
+							<td> <%= result.getString("departureDate") %></td>
+							<td> <%= result.getString("totalFare") %></td>
+							<td> <%= result.getString("active") %></td>
+						</tr>
+			<%	}%>
+				</tbody>
+				</table> <% 
+				result.close();
+			}catch(Exception e){
+				System.out.println(e);
+				System.out.println("Query Failed");
+				out.println("Query failed! Please try again");
+			}
+		%>
+		</div>
+		<% 
+		stmt.close();
 		System.out.println("Disconnecting from database");
 		con.close();
 	}catch(Exception e){
@@ -94,6 +158,38 @@
 	}
 	
 	%>
+	<div>
+		<h2>
+			Create Reservation
+		</h2>
+		<form method="post" action="createReservationHelper.jsp">
+			<label for="transitName">Transit Line Name</label>
+			<input id="transitName" name="transitName" required/>
+			
+			<label for="trainID">Train ID</label>
+			<input id="trainID" name="trainID" required/>
+			
+			<label for="originStationID">Origin Station ID</label>
+			<input id="originStationID" name="originStationID" required/>
+			
+			<label for="destinationStationID">Destination Station ID</label>
+			<input id="destinationStationID" name="destinationStationID" required/>
+			
+			<label for="disabled"> None </label>
+			<input id="disabled" type="radio" name="discount" value="none" checked/>
+			
+			<label for="child"> Senior</label>
+			<input id="child" type="radio" name="discount" value="senior"/>
+			
+			<label for="child"> Child </label>
+			<input id="child" type="radio" name="discount" value="child"/>
+			
+			<label for="disabled"> Disabled</label>
+			<input id="disabled" type="radio" name="discount" value="disable"/>
+			<br/>
+			<button type="submit"> Create </button>
+		</form>
+	</div>
 	<div>
 		<h2>
 			Please go back to <a href="home.jsp">home</a>.

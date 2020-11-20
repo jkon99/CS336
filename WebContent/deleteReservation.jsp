@@ -40,7 +40,8 @@
 	try{
 		ApplicationDB db = new ApplicationDB();	
 		Connection con = db.getConnection();
-		String query = "update Reservation set active=false where reservationNumber = ? and username = ?";
+		String query = "update Reservation set active=false where reservationNumber = ? and username = ?;";
+		System.out.println(query);
 		PreparedStatement pstmt = con.prepareStatement(query);
 		for(String res_ID : resID){
 			pstmt.setString(1, res_ID);

@@ -57,6 +57,7 @@
 			<thead>
 				<tr>
 					<th>Reservation ID</th>
+					<th>Reservation Date</th>
 					<th>Username</th>
 					<th>Transit Line Name</th>
 					<th>Train ID</th>
@@ -73,6 +74,7 @@
 			while(result.next()){ %>
 					<tr>
 						<td> <%= result.getString("reservationNumber") %></td>
+						<td> <%= result.getString("reservationDate") %></td>
 						<td> <%= result.getString("username") %></td>
 						<td> <%= result.getString("transitLineName") %></td>
 						<td> <%= result.getString("trainID") %></td>
@@ -110,6 +112,7 @@
 			<thead>
 				<tr>
 					<th>Reservation ID</th>
+					<th>Reservation Date</th>
 					<th>Username</th>
 					<th>Transit Line Name</th>
 					<th>Train ID</th>
@@ -126,6 +129,7 @@
 			while(result.next()){ %>
 					<tr>
 						<td> <%= result.getString("reservationNumber") %></td>
+						<td> <%= result.getString("reservationDate") %></td>
 						<td> <%= result.getString("username") %></td>
 						<td> <%= result.getString("transitLineName") %></td>
 						<td> <%= result.getString("trainID") %></td>
@@ -156,6 +160,17 @@
 	}
 	
 	%>
+	<div>
+		<h2>
+			Cancel Reservations
+		</h2>
+		<form method="post" action="deleteReservation.jsp">
+			<label for="resID"> Reservation IDs (comma separated)</label>
+			<input id="resID" name="resID" required/>
+			<button type="submit"> Delete </button>
+		</form>
+	</div>
+		
 	<div>
 		<h2>
 			Please go back to <a href="home.jsp">home</a>.
