@@ -11,6 +11,26 @@
 <link rel="stylesheet" href="logout.css">
 </head>
 <body>
+	<h1 class="title">
+	    Train Reservation System
+	</h1>
+	<div>
+		<% 
+		try{
+			System.out.println("Testing Session");
+			session.getAttribute("username").equals("");
+			}catch(Exception e){ 
+				System.out.println("Invalid Session");
+				System.out.println(e);
+			%>	
+				<div class="errorMessage">
+					Your session has expired, please <a href="login.jsp">login</a> again. 
+				</div>
+			<% 	
+				return;
+			}
+		%>
+	</div>
 	<%
 		System.out.println("Invaliding the session for this user (FROM SERVER)");
 		String role = (String) session.getAttribute("role");
@@ -22,9 +42,6 @@
 		}
 		
 	%>
-	<h1 class="title">
-	    Train Reservation System
-	</h1>
 	<div class="successMessage">
 	    Successfully logged out, automatically redirecting to login page in 5 seconds! 
 	</div>
