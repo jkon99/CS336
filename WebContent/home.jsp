@@ -154,7 +154,7 @@
 					</form>
 				</div>
 	<div>
-				<h1> Get Reservation List </h1>
+				<h2> Get Reservation List </h2>
 				<form method ="post" action ="ReservationList.jsp">
 				<label for="customername"> Customer Name </label>
 				<input id= "customername" name= "customername" required/>
@@ -164,7 +164,7 @@
 				</form>
 	</div>
 	<div>
-				<h1> Revenue</h1>
+				<h2> Revenue List</h2>
 				<form method= "post" action="RevenueList.jsp">
 				<label for="customername"> Revenue for:</label>
 				<input id="customername" name="customername" required/>
