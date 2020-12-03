@@ -46,9 +46,10 @@
 		ArrayList<String> transitLineNames = new ArrayList<String>();
 		ArrayList<String> trainIDs = new ArrayList<String>();
 		try{
-			insertUser.setString(1, originStationID);
-			insertUser.setString(2, destinationStationID);
+			insertUser.setInt(1, Integer.valueOf(originStationID));
+			insertUser.setInt(2, Integer.valueOf(destinationStationID));
 			insertUser.setString(3, departTime);
+			System.out.println(insertUser);
 			ResultSet result = insertUser.executeQuery(); 
 			%>
 			<table class="fancyTable">	
@@ -101,10 +102,11 @@
 		insert = "select * from Stop where originStationID = ? and destinationStationID = ? and transitLineName = ? and trainID = ?;";
 		insertUser = con.prepareStatement(insert);
 		for(int i = 0; i < transitLineNames.size(); i++){
-			insertUser.setString(1, originStationID);
-			insertUser.setString(2, destinationStationID);
+			insertUser.setInt(1, Integer.valueOf(originStationID));
+			insertUser.setInt(2, Integer.valueOf(destinationStationID));
 			insertUser.setString(3, transitLineNames.get(i));
-			insertUser.setString(4, trainIDs.get(i));
+			insertUser.setInt(4,  Integer.valueOf(trainIDs.get(i)));
+			System.out.println(insertUser);
 			try{
 				ResultSet result = insertUser.executeQuery();
 				%>

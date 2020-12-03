@@ -44,8 +44,9 @@
 		System.out.println(query);
 		PreparedStatement pstmt = con.prepareStatement(query);
 		for(String res_ID : resID){
-			pstmt.setString(1, res_ID);
+			pstmt.setInt(1, Integer.valueOf(res_ID));
 			pstmt.setString(2, ((String) session.getAttribute("username")));
+			System.out.println(pstmt);
 			try{
 				pstmt.executeUpdate();
 			}catch(Exception e){
