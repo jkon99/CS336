@@ -55,7 +55,7 @@
 	String value = request.getParameter("discount");
 	System.out.println(value);
 	
-	ArrayList<String> fare = new ArrayList<String>();
+	ArrayList<Double> fare = new ArrayList<Double>();
 	ArrayList<String> departDate = new ArrayList<String>();
 	ArrayList<String> departTime = new ArrayList<String>();
 	
@@ -67,9 +67,9 @@
 		PreparedStatement pstmt = con.prepareStatement(query);
 		for(int i = 0; i < transitName.length; i++){
 			pstmt.setString(1, transitName[i]);
-			pstmt.setString(2, trainID[i]);
-			pstmt.setString(3, originStationID[i]);
-			pstmt.setString(4, destinationStationID[i]);
+			pstmt.setInt(2, Integer.valueOf(trainID[i]));
+			pstmt.setInt(3, Integer.valueOf(originStationID[i]));
+			pstmt.setInt(4, Integer.valueOf(destinationStationID[i]));
 			try{
 				ResultSet result = pstmt.executeQuery();
 				while(result.next()){
@@ -81,7 +81,7 @@
 					}else if(value.equals("disable")){
 						totalFare = totalFare - (totalFare * .5);
 					}
-					fare.add(String.valueOf(totalFare));
+					fare.add(totalFare);
 					String departDatetime = result.getString("departDatetime");
 					String[] dDatetime = departDatetime.split(" ");
 					departDate.add(dDatetime[0]);
@@ -111,17 +111,18 @@
 		query = "insert into Reservation values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, true);";
 		pstmt = con.prepareStatement(query);
 		for(int i = 0; i < transitName.length; i++){
-			pstmt.setString(1, String.valueOf(totalRes));
+			pstmt.setInt(1, totalRes);
 			pstmt.setString(2, dateOfCreation);
 			pstmt.setString(3, username);
 			pstmt.setString(4, transitName[i]);
-			pstmt.setString(5, trainID[i]);
-			pstmt.setString(6, originStationID[i]);
-			pstmt.setString(7, destinationStationID[i]);
+			pstmt.setInt(5, Integer.valueOf(trainID[i]));
+			pstmt.setInt(6, Integer.valueOf(originStationID[i]));
+			pstmt.setInt(7, Integer.valueOf(destinationStationID[i]));
 			pstmt.setString(8, departTime.get(i));
 			pstmt.setString(9, departDate.get(i));
-			pstmt.setString(10, fare.get(i));
+			pstmt.setDouble(10, fare.get(i));
 			totalRes++;
+			System.out.println(pstmt);
 			try{
 				pstmt.executeUpdate();
 			}catch(Exception e){

@@ -250,15 +250,15 @@
 						out.println("Sorry the query failed, please try again!");
 						
 					}
-					sortBy.close();
 				}
-				
+				sortBy.close();
 			}
 			
 			System.out.println("Disconnecting from database!");
 			con.close();
 		}catch(Exception e){
 			System.out.println("Failed to connect to the database!");
+			System.out.println(e);
 			out.println("Failed to connect to the database, please retry!");
 		}
 		

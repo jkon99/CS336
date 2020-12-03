@@ -45,7 +45,8 @@
 		PreparedStatement insertUser = con.prepareStatement(insert);
 		
 		for(String train_id : trainId ){
-			insertUser.setString(1, train_id);
+			insertUser.setInt(1, Integer.valueOf(train_id));
+			System.out.println(insertUser);
 			try{
 				insertUser.executeUpdate();
 			}catch(Exception e){

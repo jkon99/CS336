@@ -61,15 +61,16 @@
 		PreparedStatement insertUser = con.prepareStatement(insert);
 		
 		for(int i = 0; i < transitLineName.length; i++){
-			insertUser.setString(1, stopStationID[i]);
+			insertUser.setInt(1, Integer.valueOf(stopStationID[i]));
 			insertUser.setString(2, transitLineName[i]);
-			insertUser.setString(3, trainID[i]);
-			insertUser.setString(4, originStationID[i]);
-			insertUser.setString(5, destinationStationID[i]);
+			insertUser.setInt(3, Integer.valueOf(trainID[i]));
+			insertUser.setInt(4, Integer.valueOf(originStationID[i]));
+			insertUser.setInt(5, Integer.valueOf(destinationStationID[i]));
 			insertUser.setString(6, arrivalTime[i]);
 			insertUser.setString(7, departTime[i]);
-			insertUser.setString(8, stopNumber[i]);
-			insertUser.setString(9, fare[i]);
+			insertUser.setInt(8, Integer.valueOf(stopNumber[i]));
+			insertUser.setDouble(9, Double.valueOf(fare[i]));
+			System.out.println(insertUser);
 			try{
 				insertUser.executeUpdate();
 			}catch(Exception e){

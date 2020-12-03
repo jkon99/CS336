@@ -50,10 +50,11 @@
 		PreparedStatement insertUser = con.prepareStatement(insert);
 		
 		for(int i = 0; i < stationId.length; i++){
-			insertUser.setString(1, stationId[i]);
+			insertUser.setInt(1, Integer.valueOf(stationId[i]));
 			insertUser.setString(2, stationName[i]);
 			insertUser.setString(3, state[i]);
 			insertUser.setString(4, city[i]);
+			System.out.println(insertUser);
 			try{
 				insertUser.executeUpdate();
 			}catch(Exception e){

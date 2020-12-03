@@ -79,13 +79,14 @@
 		
 		for(int i = 0; i < transitLineName.length; i++){
 			insertUser.setString(1, transitLineName[i]);
-			insertUser.setString(2, trainID[i]);
-			insertUser.setString(3, originStationID[i]);
-			insertUser.setString(4, destinationStationID[i]);
+			insertUser.setInt(2, Integer.valueOf(trainID[i]));
+			insertUser.setInt(3, Integer.valueOf(originStationID[i]));
+			insertUser.setInt(4, Integer.valueOf(destinationStationID[i]));
 			insertUser.setString(5, arrivalTime[i]);
 			insertUser.setString(6, departTime[i]);
 			insertUser.setString(7, tripType[i]);
-			insertUser.setString(8, fixedFare[i]);
+			insertUser.setDouble(8, Double.valueOf(fixedFare[i]));
+			System.out.println(insertUser);
 			try{
 				insertUser.executeUpdate();
 			}catch(Exception e){
