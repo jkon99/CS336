@@ -153,6 +153,37 @@
 						<button type="submit"> Create </button>
 					</form>
 				</div>
+	<div>
+				<h1> Get Reservation List </h1>
+				<form method ="post" action ="ReservationList.jsp">
+				<label for="customername"> Customer Name </label>
+				<input id= "customername" name= "customername" required/>
+				<label for ="transitname"> Transit Line Name </label>
+				<input id = "transitname" name ="transitname" required/>
+				<button type = "submit"> Search </button>
+				</form>
+	</div>
+	<div>
+				<h1> Revenue</h1>
+				<form method= "post" action="RevenueList.jsp">
+				<label for="customername"> Revenue for:</label>
+				<input id="customername" name="customername" required/>
+				<label for="transitname"> Revenue for: </label>
+				<input id="transitname" name="transitname" required/>
+				<button type = "submit"> Search </button>
+				 
+				</form>
+				</div>
+<div>
+		Click <a href="BestCustomer.jsp">here</a> for the best customer.
+		</div>
+	<div>
+		Click <a href="ActiveTransitLines.jsp">here</a> for the best 5 most active transit lines.
+			</div>
+	
+	
+	
+	
 
 			</div>
 			
