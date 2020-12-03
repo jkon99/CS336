@@ -83,12 +83,9 @@
 						break;
 					}
 				}
-				ArrayList<String> queryReplace = new ArrayList<String>();
 				for(int i = 0; i < orderBy.size(); i++){
 					if(orderBy.get(i) != null){
-						queryReplace.add(orderBy.get(i));
-						queryReplace.add(orderByMeta.get(i));
-						query += " ? ?,";
+						query += " " + orderBy.get(i) + " " + orderByMeta.get(i) + ",";
 					}					
 				}
 				if(query.equals("select * from Schedule where originStationID = ? and destinationStationID = ? and departDatetime = ?")){
@@ -98,14 +95,10 @@
 				}
 				System.out.println(query);
 				PreparedStatement sortBy = con.prepareStatement(query);
-				sortBy.setString(1, scheduleMetaData[0]);
-				sortBy.setString(2, scheduleMetaData[1]);
+				sortBy.setInt(1, Integer.valueOf(scheduleMetaData[0]));
+				sortBy.setInt(2, Integer.valueOf(scheduleMetaData[1]));
 				sortBy.setString(3, scheduleMetaData[2]);
-				int counter = 4;
-				for(String s : queryReplace){
-					sortBy.setString(counter, s);
-					counter++;
-				}
+				System.out.println(sortBy);
 				try{
 					ResultSet result = sortBy.executeQuery(); 
 					%>
@@ -192,12 +185,9 @@
 						break;
 					}
 				}
-				ArrayList<String> queryReplace = new ArrayList<String>();
 				for(int i = 0; i < orderBy.size(); i++){
 					if(orderBy.get(i) != null){
-						queryReplace.add(orderBy.get(i));
-						queryReplace.add(orderByMeta.get(i));
-						query += " ? ?,";
+						query += " " + orderBy.get(i) + " " + orderByMeta.get(i) + ",";
 					}					
 				}
 				if(query.equals("select * from Stop where originStationID = ? and destinationStationID = ? and transitLineName = ? and trainID = ?")){
@@ -207,16 +197,12 @@
 				}
 				System.out.println(query);
 				PreparedStatement sortBy = con.prepareStatement(query);
-				sortBy.setString(1, scheduleMetaData[0]);
-				sortBy.setString(2, scheduleMetaData[1]);
+				sortBy.setInt(1, Integer.valueOf(scheduleMetaData[0]));
+				sortBy.setInt(2, Integer.valueOf(scheduleMetaData[1]));
 				for(int i = 0; i < stopTransitName.length; i++){
 					sortBy.setString(3, stopTransitName[i]);
-					sortBy.setString(4, stopTrainID[i]);
-					int counter = 5;
-					for(String s : queryReplace){
-						sortBy.setString(counter, s);
-						counter++;
-					}
+					sortBy.setInt(4, Integer.valueOf(stopTrainID[i]));
+					System.out.println(sortBy);
 					try{
 						ResultSet result = sortBy.executeQuery();
 						%>
