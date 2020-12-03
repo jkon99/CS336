@@ -37,6 +37,8 @@
 		session.invalidate();
 		if(role.equals("employee")){
 			response.setHeader("Refresh", "5;url=employeeLogin.jsp");
+		}else if(role.equals("admin")){
+			response.setHeader("Refresh", "5;url=adminLogin.jsp");
 		}else{
 			response.setHeader("Refresh", "5;url=login.jsp");
 		}
@@ -50,6 +52,9 @@
   	</p>
   	<p>
   	  Employee Login <a href='employeeLogin.jsp'>here</a>.
+  	</p>
+  	<p>
+  	 Admin Login <a href='adminLogin.jsp'>here</a>.
   	</p>
 </body>
 </html>
