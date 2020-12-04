@@ -166,9 +166,9 @@
 	<div>
 				<h2> Revenue List</h2>
 				<form method= "post" action="RevenueList.jsp">
-				<label for="customername"> Revenue for:</label>
+				<label for="customername"> Revenue by Customer Name:</label>
 				<input id="customername" name="customername" required/>
-				<label for="transitname"> Revenue for: </label>
+				<label for="transitname"> Revenue by Transit Line Name: </label>
 				<input id="transitname" name="transitname" required/>
 				<button type = "submit"> Search </button>
 				 
