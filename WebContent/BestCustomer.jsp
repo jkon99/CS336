@@ -21,14 +21,12 @@ Connection con = db.getConnection();
 Statement st = con.createStatement();
 ResultSet result;
 
-String customername = request.getParameter("sums.username") + "";
-String totalBought = request.getParameter("sums.totalBought") + "";
 
 result = st.executeQuery("select sums.username,sums.totalBought from (select username, sum(totalFare) as \"totalBought\" from Reservation GROUP BY username )sums where sums.totalBought = (select max(sumtest.totalBought) from (select username, sum(totalFare) as \"totalBought\" from Reservation group by username) sumtest);");
 while(result.next()){ %>
 <tr>
-<td> <%= result.getString("sums.username") %></td>
-<td> <%= result.getString("sums.totalBought") %></td>
+<td> <%= result.getString("username") %></td>
+<td> <%= result.getString("totalBought") %></td>
 </tr>
 
 <%
