@@ -20,9 +20,9 @@ Statement st = con.createStatement();
 ResultSet result;
 
 String customername = request.getParameter("customername") + "";
-String transitName = request.getParameter("transitName") + "";
+String transitName = request.getParameter("transitname") + "";
 
-result = st.executeQuery("select * from Reservation where transitLineName ='"+transitName+"' or username = '"+customername+"' ");
+result = st.executeQuery("select * from Reservation where transitLineName ='"+transitname+"' or username = '"+customername+"' ");
 
 %>
 <table class= "fancyTable">
