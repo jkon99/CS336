@@ -29,11 +29,11 @@ Statement st = con.createStatement();
 ResultSet result;
 
 String customername = request.getParameter("customername") + "";
-String transitName = request.getParameter("transitName") + "";
+String transitName = request.getParameter("transitname") + "";
 
-result = st.executeQuery("select sum(totalfare)as revenue from Reservation where transitLineName ='"+transitName+"' or username = '"+customername+"' ");
+result = st.executeQuery("select sum(totalfare)as revenue from Reservation where transitLineName ='"+transitname+"' or username = '"+customername+"' ");
 
-out.println("Revenue per "+transitName+" is:");
+out.println("Revenue per "+transitname+" is:");
 out.println("Revenue per "+customername+" is:");
 
 while(result.next()){
@@ -44,6 +44,7 @@ while(result.next()){
 		out.println("$" + result.getString("revenue"));
 	}
 }
+con.close();
 
 }catch(Exception e){
 	System.out.println("Query failed!");
