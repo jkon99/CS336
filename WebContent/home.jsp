@@ -43,15 +43,127 @@
 					Search the Train Schedules
 				</h2>
 				<form method="post" action="searchSchedule.jsp">
-					<label for="originStation" > Origin Station ID</label>
-					<input id="originStation" name="originStationID" required/>
-					<label for="destinationStation" > Destination Station ID</label>
-					<input id="destinationStation" name="destinationStationID" required/>
-					<label for="travelDate" > Date of Travel</label>
-					<input id="travelDate" name="travelDatetime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
-					<br/>
-					<button type="submit"> Search</button>
+				  <div class="flex-container">
+				    <span>
+				      <label for="originStation" > Origin Station ID</label>
+				      <input id="originStation" name="originStationID" required/>
+				    </span>
+				    <span>
+				      <label for="destinationStation" > Destination Station ID</label>
+				      <input id="destinationStation" name="destinationStationID" required/>
+				    </span>
+				    <span>
+				      <label for="travelDate" > Date of Travel</label>
+				      <input id="travelDate" name="travelDatetime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
+				    </span>
+				  </div>
+				  <button type="submit"> Search</button>
 				</form>
+				
+				<form method="post" action="sortByAllSchedule.jsp">
+					<fieldset>
+						<legend>All Schedule [Sort By]</legend>
+						<span>
+							<input id="transit" type="checkbox" name="transit" value="transitLineName" />
+							<label for="transit">Transit Line Name</label>
+							
+							<input id="transitDES" type="radio" name="transitOrderby" value="DESC" checked />
+							<label for="transitDES">Descending </label>
+							
+							<input id="transitASC" type="radio" name="transitOrderby" value="ASC" />
+							<label for="transitASC">Ascending</label>
+							
+						</span>
+						<span>
+							<input id="train" type="checkbox" name="train" value="trainID" />
+							<label for="train">Train ID</label>
+							
+							<input id="trainDES" type="radio" name="trainOrderby" value="DESC" checked />
+							<label for="trainDES">Descending </label>
+							
+							<input id="trainASC" type="radio" name="trainOrderby" value="ASC" />
+							<label for="trainASC">Ascending</label>
+							
+						</span>
+						<span>
+							<input id="originStation" type="checkbox" name="originStation" value="originStationID" />
+							<label for="originStation">Origin Station ID</label>
+							
+							<input id="originStationDES" type="radio" name="originStationOrderby" value="DESC" checked />
+							<label for="originStationDES">Descending </label>
+							
+							<input id="originStationASC" type="radio" name="originStationOrderby" value="ASC" />
+							<label for="originStationASC">Ascending</label>
+							
+						</span>
+						<span>
+							<input id="destinationStation" type="checkbox" name="destinationStation" value="destinationStationID" />
+							<label for="destinationStation">Destination Station ID</label>
+							
+							<input id="destinationStationDES" type="radio" name="destinationStationOrderby" value="DESC" checked />
+							<label for="destinationStationDES">Descending </label>
+							
+							<input id="destinationStationASC" type="radio" name="destinationStationOrderby" value="ASC" />
+							<label for="destinationStationASC">Ascending</label>
+						</span>
+						<span>
+							<input id="arrivalDatetime" type="checkbox" name="arrivalDatetime" value="arrivalDatetime" />
+							<label for="arrivalDatetime">Arrival Time</label>
+							
+							<input id="arrivalDatetimeDES" type="radio" name="arrivalDatetimeOrderby" value="DESC" checked />
+							<label for="arrivalDatetimeDES">Descending </label>
+							
+							<input id="arrivalDatetimeASC" type="radio" name="arrivalDatetimeOrderby" value="ASC" />
+							<label for="arrivalDatetimeASC">Ascending</label>
+						</span>
+						<span>
+							<input id="departDatetime" type="checkbox" name="departDatetime" value="departDatetime" />
+							<label for="departDatetime">Departure Time</label>
+							
+							<input id="departDatetimeDES" type="radio" name="departDatetimeOrderby" value="DESC" checked />
+							<label for="departDatetimeDES">Descending </label>
+							
+							<input id="departDatetimeASC" type="radio" name="departDatetimeOrderby" value="ASC" />
+							<label for="departDatetimeASC">Ascending</label>
+						</span>
+						<span>
+							<input id="tripType" type="checkbox" name="tripType" value="tripType" />
+							<label for="tripType">Trip Type</label>
+							
+							<input id="tripTypeDES" type="radio" name="tripTypeOrderby" value="DESC" checked />
+							<label for="tripTypeDES">Descending </label>
+							
+							<input id="tripTypeASC" type="radio" name="tripTypeOrderby" value="ASC" />
+							<label for="tripTypeASC">Ascending</label>
+							
+						</span>
+						<span>
+							<input id="fare" type="checkbox" name="fare" value="fixedFare" />
+							<label for="fare">Fare</label>
+							
+							<input id="fareDES" type="radio" name="fareOrderby" value="DESC" checked />
+							<label for="fareDES">Descending </label>
+							
+							<input id="fareASC" type="radio" name="fareOrderby" value="ASC" />
+							<label for="fareASC">Ascending</label>
+						</span>
+						<button type="submit"> Submit </button>
+					</fieldset>
+					
+				</form>
+			</div>
+			<div>
+				<h2>
+					View Stations
+				</h2>
+					To view all the stations, please click <a href="viewStation.jsp">here</a>.
+			</div>
+			
+			<div>
+				<h2>
+					View Stops
+				</h2>
+					To view all the stops, please click <a href="viewStop.jsp">here</a>.
 			</div>
 			<div>
 				<h2>
@@ -70,9 +182,13 @@
 					Cancel Reservations
 				</h2>
 				<form method="post" action="deleteReservation.jsp">
-					<label for="resID"> Reservation IDs (comma separated)</label>
-					<input id="resID" name="resID" required/>
-					<button type="submit"> Delete </button>
+					<div class="flex-container">
+						<span>
+							<label for="resID"> Reservation IDs (comma separated)</label>
+							<input id="resID" name="resID" required/>
+						</span>
+						<button type="submit"> Cancel </button>
+					</div>
 				</form>
 			</div>
 		<% }else if(((String) session.getAttribute("role")).toLowerCase().equals("employee") || ((String) session.getAttribute("role")).toLowerCase().equals("admin")) { %>
@@ -81,49 +197,78 @@
 					Create Trains
 				</h2>
 				<form method="post" action="createTrain.jsp">
-					<label for="trains">Train ID</label>
-					<input id="trainID" name="trainID" required/>
-					<br/>
-					<button type="submit"> Create </button>
+					<div class="flex-container">
+						<span>
+							<label for="trains">Train ID</label>
+							<input id="trainID" name="trainID" required/>
+						</span>
+						<button type="submit"> Create </button>
+					</div>
 				</form>
 				<h2>
 					Create Stations
 				</h2>
 				<form method="post" action="createStation.jsp">
-					<label for="stationID">Station ID</label>
-					<input id="stationID" name="stationID" required/>
-					<label for="stationName">Station Name</label>
-					<input id="stationName" name="stationName" required/>
-					<label for="state">State</label>
-					<input id="state" name="state" required/>
-					<label for="city">City</label>
-					<input id="city" name="city" required/>
-					</br>
-					<button type="submit"> Create </button>
+					<div class="flex-container">
+						<span>
+							<label for="stationID">Station ID</label>
+							<input id="stationID" name="stationID" required/>
+						</span>
+						<span>
+							<label for="stationName">Station Name</label>
+							<input id="stationName" name="stationName" required/>
+						</span>
+						<span>
+							<label for="state">State</label>
+							<input id="state" name="state" required/>
+						</span>
+						<span>
+							<label for="city">City</label>
+							<input id="city" name="city" required/>
+						</span>
+						<button type="submit"> Create </button>
+					</div>
 				</form>
 				<div>
 					<h2>
 					Create Schedules
 					</h2>
 					<form method="post" action="createSchedule.jsp">
-						<label for="transitLineName">Transit Line Name</label>
-						<input id="transitLineName" name="transitLineName" required/>
-						<label for="trainID">Train ID</label>
-						<input id="trainID" name="trainID" required/>
-						<label for="originStationID">Origin Station ID</label>
-						<input id="originStationID" name="originStationID" required/>
-						<label for="destinationStationID">Destination Station ID</label>
-						<input id="destinationStationID" name="destinationStationID" required/>
-						<label for="arrivalTime">Arrival Time</label>
-						<input id="arrivalTime" name="arrivalTime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
-						<label for="departTime">Depart Time</label>
-						<input id="departTime" name="departTime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
-						<label for="tripType">Trip Type</label>
-						<input id="tripType" name="tripType" required/>
-						<label for="fixedFare">fixedFare</label>
-						<input id="fixedFare" name="fixedFare" required/>
-						</br>
-						<button type="submit"> Create </button>
+						<div class="flex-container">
+							<span>
+								<label for="transitLineName">Transit Line Name</label>
+								<input id="transitLineName" name="transitLineName" required/>
+							</span>
+							<span>
+								<label for="trainID">Train ID</label>
+								<input id="trainID" name="trainID" required/>
+							</span>
+							<span>
+								<label for="originStationID">Origin Station ID</label>
+								<input id="originStationID" name="originStationID" required/>
+							</span>
+							<span>
+								<label for="destinationStationID">Destination Station ID</label>
+								<input id="destinationStationID" name="destinationStationID" required/>
+							</span>
+							<span>
+								<label for="arrivalTime">Arrival Time</label>
+								<input id="arrivalTime" name="arrivalTime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
+							</span>
+							<span>
+								<label for="departTime">Depart Time</label>
+								<input id="departTime" name="departTime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
+							</span>
+							<span>
+								<label for="tripType">Trip Type</label>
+								<input id="tripType" name="tripType" required/>
+							</span>
+							<span>
+								<label for="fixedFare">fixedFare</label>
+								<input id="fixedFare" name="fixedFare" required/>
+							</span>
+							<button type="submit"> Create </button>
+						</div>
 					</form>
 				</div>
 				<div>
@@ -131,61 +276,92 @@
 						Create Stops
 					</h2>
 					<form method="post" action="createStop.jsp">
-						<label for="stopStationID">Stop Station ID</label>
-						<input id="stopStationID" name="stopStationID" required/>
-						<label for="transitLineName">Transit Line Name</label>
-						<input id="transitLineName" name="transitLineName" required/>
-						<label for="trainID">Train ID</label>
-						<input id="trainID" name="trainID" required/>
-						<label for="originStationID">Origin Station ID</label>
-						<input id="originStationID" name="originStationID" required/>
-						<label for="destinationStationID">Destination Station ID</label>
-						<input id="destinationStationID" name="destinationStationID" required/>
-						<label for="arrivalTime">Arrival Time</label>
-						<input id="arrivalTime" name="arrivalTime" placeholder="hh:mm:ss" required/>
-						<label for="departTime">Depart Time</label>
-						<input id="departTime" name="departTime" placeholder="hh:mm:ss" required/>
-						<label for="stopNumber">Stop Number</label>
-						<input id="stopNumber" name="stopNumber" required/>
-						<label for="fare">Fare</label>
-						<input id="fare" name="fare" required/>
-						<br/>
-						<button type="submit"> Create </button>
+						<div class="flex-container">
+							<span>
+								<label for="stopStationID">Stop Station ID</label>
+								<input id="stopStationID" name="stopStationID" required/>
+							</span>
+							<span>
+								<label for="transitLineName">Transit Line Name</label>
+								<input id="transitLineName" name="transitLineName" required/>
+							</span>
+							<span>
+								<label for="trainID">Train ID</label>
+								<input id="trainID" name="trainID" required/>
+							</span>
+							<span>
+								<label for="originStationID">Origin Station ID</label>
+								<input id="originStationID" name="originStationID" required/>
+							</span>
+							<span>
+								<label for="destinationStationID">Destination Station ID</label>
+								<input id="destinationStationID" name="destinationStationID" required/>
+							</span>
+							<span>
+								<label for="arrivalTime">Arrival Time</label>
+								<input id="arrivalTime" name="arrivalTime" placeholder="hh:mm:ss" required/>
+							</span>
+							<span>
+								<label for="departTime">Depart Time</label>
+								<input id="departTime" name="departTime" placeholder="hh:mm:ss" required/>
+							</span>
+							<span>
+								<label for="stopNumber">Stop Number</label>
+								<input id="stopNumber" name="stopNumber" required/>
+							</span>
+							<span>						
+								<label for="fare">Fare</label>
+								<input id="fare" name="fare" required/>
+							</span>
+							<button type="submit"> Create </button>
+						</div>
 					</form>
 				</div>
-	<div>
-				<h2> Get Reservation List </h2>
-				<form method ="post" action ="ReservationList.jsp">
-				<label for="customername"> Customer Name </label>
-				<input id= "customername" name= "customername" required/>
-				<label for ="transitname"> Transit Line Name </label>
-				<input id = "transitname" name ="transitname" required/>
-				<button type = "submit"> Search </button>
-				</form>
-	</div>
-	<div>
-				<h2> Revenue List</h2>
-				<form method= "post" action="RevenueList.jsp">
-				<label for="customername"> Revenue by Customer Name:</label>
-				<input id="customername" name="customername" required/>
-				<label for="transitname"> Revenue by Transit Line Name: </label>
-				<input id="transitname" name="transitname" required/>
-				<button type = "submit"> Search </button>
-				 
-				</form>
+				<div>
+					<h2> Get Reservation List </h2>
+					<form method ="post" action ="ReservationList.jsp">
+						<div class="flex-container"> 
+							<span>
+								<label for="customername"> Customer Name </label>
+								<input id= "customername" name= "customername" required/>
+							</span>
+							<span>
+								<label for ="transitname"> Transit Line Name </label>
+								<input id = "transitname" name ="transitname" required/>
+							</span>
+							<button type = "submit"> Search </button>
+						</div>
+						
+					</form>
 				</div>
-<div>
-		Click <a href="BestCustomer.jsp">here</a> for the best customer.
-		</div>
-	<div>
-		Click <a href="ActiveTransitLines.jsp">here</a> for the best 5 most active transit lines.
-			</div>
-	
-	
-	
-	
-
-			</div>
+				<div>
+					<h2> Revenue List</h2>
+					<form method= "post" action="RevenueList.jsp">
+						<div class="flex-container">
+							<span>
+								<label for="customername"> Revenue by Customer Name:</label>
+								<input id="customername" name="customername" required/>
+							</span>
+							<span>
+								<label for="transitname"> Revenue by Transit Line Name: </label>
+								<input id="transitname" name="transitname" required/>
+							</span>
+							<button type = "submit"> Search </button>
+						</div>
+					</form>
+				</div>
+				
+				<div>
+					Click <a href="betterCreate.jsp">here</a> for better create.
+				</div>
+				
+				<div>
+					Click <a href="BestCustomer.jsp">here</a> for the best customer.
+				</div>
+				<div>
+					Click <a href="ActiveTransitLines.jsp">here</a> for the best 5 most active transit lines.
+				</div>
+	</div>
 			
 			
 		<% }else{ // Admin

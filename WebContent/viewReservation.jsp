@@ -165,9 +165,13 @@
 			Cancel Reservations
 		</h2>
 		<form method="post" action="deleteReservation.jsp">
-			<label for="resID"> Reservation IDs (comma separated)</label>
-			<input id="resID" name="resID" required/>
-			<button type="submit"> Delete </button>
+			<div class="flex-container">
+				<span>
+					<label for="resID"> Reservation IDs (comma separated)</label>
+					<input id="resID" name="resID" required/>
+				</span>
+				<button type="submit"> Cancel </button>
+			</div>
 		</form>
 	</div>
 		

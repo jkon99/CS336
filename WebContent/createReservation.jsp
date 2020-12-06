@@ -163,31 +163,41 @@
 			Create Reservation
 		</h2>
 		<form method="post" action="createReservationHelper.jsp">
-			<label for="transitName">Transit Line Name</label>
-			<input id="transitName" name="transitName" required/>
-			
-			<label for="trainID">Train ID</label>
-			<input id="trainID" name="trainID" required/>
-			
-			<label for="originStationID">Origin Station ID</label>
-			<input id="originStationID" name="originStationID" required/>
-			
-			<label for="destinationStationID">Destination Station ID</label>
-			<input id="destinationStationID" name="destinationStationID" required/>
-			
-			<label for="disabled"> None </label>
-			<input id="disabled" type="radio" name="discount" value="none" checked/>
-			
-			<label for="child"> Senior</label>
-			<input id="child" type="radio" name="discount" value="senior"/>
-			
-			<label for="child"> Child </label>
-			<input id="child" type="radio" name="discount" value="child"/>
-			
-			<label for="disabled"> Disabled</label>
-			<input id="disabled" type="radio" name="discount" value="disable"/>
-			<br/>
-			<button type="submit"> Create </button>
+			<div class="flex-container">
+				<span>
+					<label for="transitName">Transit Line Name</label>
+					<input id="transitName" name="transitName" required/>
+				</span>
+				<span>
+					<label for="trainID">Train ID</label>
+					<input id="trainID" name="trainID" required/>
+				</span>
+				<span>
+					<label for="originStationID">Origin Station ID</label>
+					<input id="originStationID" name="originStationID" required/>
+				</span>
+				<span>
+					<label for="destinationStationID">Destination Station ID</label>
+					<input id="destinationStationID" name="destinationStationID" required/>
+				</span>
+				<span>
+					<label for="disabled"> None </label>
+					<input id="disabled" type="radio" name="discount" value="none" checked/>
+				</span>
+				<span>
+					<label for="child"> Senior</label>
+					<input id="child" type="radio" name="discount" value="senior"/>
+				</span>
+				<span>
+					<label for="child"> Child </label>
+					<input id="child" type="radio" name="discount" value="child"/>
+				</span>
+				<span>
+					<label for="disabled"> Disabled</label>
+					<input id="disabled" type="radio" name="discount" value="disable"/>
+				</span>
+				<button type="submit"> Create </button>
+			</div>
 		</form>
 	</div>
 	<div>

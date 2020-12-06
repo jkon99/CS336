@@ -4,12 +4,15 @@ body {
     background-color: #F5F5F5;
 }
 
-.password {
-	color: red;
+
+
+fieldset{
+	color: #004E7C;	
 }
 
-.username {
-	color: green;	
+legend {
+	color: #85144b;
+	padding: 3px 5px;
 }
 
 .fancyTable {
@@ -55,6 +58,62 @@ body {
 span{
 	display: block;
 	margin: 5px 0px;
+}
+
+form {
+  margin: 0px 0px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.flex-container{
+  width: 75%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+}
+
+.flex-container span{
+   margin: 2px 4px;
+}
+
+.flex-container span input {
+  width: 140px;
+  border: none;
+  border-bottom: 2px solid #851485;
+  background-color: transparent;
+  transition: border-bottom 750ms ease-in-out;
+}
+.flex-container span input[type="radio"], .flex-container span input[type="checkbox"]{
+	width: auto;
+}
+
+.flex-container span input:focus {
+  border-bottom: 2px solid black;
+}
+
+form button[type="submit"] {
+  margin: 5px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  border-radius: .66em;
+  padding: 2.5px 4.5px;
+  color: white;
+  background-color: #1179ae;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+form fieldset button[type="submit"] {
+	margin: 5px 0px;
+}
+
+form button[type="submit"]:hover{
+  background-color: #116dae;
+}
+
+.flex-container span label {
+   color: #004E7C;
+   margin: 0px 10px;
 }
 
 .loggedin{

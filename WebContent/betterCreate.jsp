@@ -211,80 +211,127 @@
 			Create Trains
 		</h2>
 		<form method="post" action="createTrain.jsp">
-			<label for="trains">Train ID</label>
-			<input id="trainID" name="trainID" required/>
-			<br/>
-			<button type="submit"> Create </button>
+			<div class="flex-container">
+				<span>
+					<label for="trains">Train ID</label>
+					<input id="trainID" name="trainID" required/>
+				</span>
+				<button type="submit"> Create </button>
+			</div>
 		</form>
-	</div>
-	<div>
 		<h2>
 			Create Stations
 		</h2>
 		<form method="post" action="createStation.jsp">
-			<label for="stationID">Station ID</label>
-			<input id="stationID" name="stationID" required/>
-			<label for="stationName">Station Name</label>
-			<input id="stationName" name="stationName" required/>
-			<label for="state">State</label>
-			<input id="state" name="state" required/>
-			<label for="city">City</label>
-			<input id="city" name="city" required/>
-			</br>
-			<button type="submit"> Create </button>
+			<div class="flex-container">
+				<span>
+					<label for="stationID">Station ID</label>
+					<input id="stationID" name="stationID" required/>
+				</span>
+				<span>
+					<label for="stationName">Station Name</label>
+					<input id="stationName" name="stationName" required/>
+				</span>
+				<span>
+					<label for="state">State</label>
+					<input id="state" name="state" required/>
+				</span>
+				<span>
+					<label for="city">City</label>
+					<input id="city" name="city" required/>
+				</span>
+				<button type="submit"> Create </button>
+			</div>
 		</form>
-	</div>
-	<div>
-		<h2>
-		Create Schedules
-		</h2>
-		<form method="post" action="createSchedule.jsp">
-			<label for="transitLineName">Transit Line Name</label>
-			<input id="transitLineName" name="transitLineName" required/>
-			<label for="trainID">Train ID</label>
-			<input id="trainID" name="trainID" required/>
-			<label for="originStationID">Origin Station ID</label>
-			<input id="originStationID" name="originStationID" required/>
-			<label for="destinationStationID">Destination Station ID</label>
-			<input id="destinationStationID" name="destinationStationID" required/>
-			<label for="arrivalTime">Arrival Time</label>
-			<input id="arrivalTime" name="arrivalTime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
-			<label for="departTime">Depart Time</label>
-			<input id="departTime" name="departTime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
-			<label for="tripType">Trip Type</label>
-			<input id="tripType" name="tripType" required/>
-			<label for="fixedFare">fixedFare</label>
-			<input id="fixedFare" name="fixedFare" required/>
-			</br>
-			<button type="submit"> Create </button>
-		</form>
-	</div>
-	<div>
-		<h2>
-			Create Stops
-		</h2>
-		<form method="post" action="createStop.jsp">
-			<label for="stopStationID">Stop Station ID</label>
-			<input id="stopStationID" name="stopStationID" required/>
-			<label for="transitLineName">Transit Line Name</label>
-			<input id="transitLineName" name="transitLineName" required/>
-			<label for="trainID">Train ID</label>
-			<input id="trainID" name="trainID" required/>
-			<label for="originStationID">Origin Station ID</label>
-			<input id="originStationID" name="originStationID" required/>
-			<label for="destinationStationID">Destination Station ID</label>
-			<input id="destinationStationID" name="destinationStationID" required/>
-			<label for="arrivalTime">Arrival Time</label>
-			<input id="arrivalTime" name="arrivalTime" placeholder="hh:mm:ss" required/>
-			<label for="departTime">Depart Time</label>
-			<input id="departTime" name="departTime" placeholder="hh:mm:ss" required/>
-			<label for="stopNumber">Stop Number</label>
-			<input id="stopNumber" name="stopNumber" required/>
-			<label for="fare">Fare</label>
-			<input id="fare" name="fare" required/>
-			<br/>
-			<button type="submit"> Create </button>
-		</form>
+		<div>
+			<h2>
+			Create Schedules
+			</h2>
+			<form method="post" action="createSchedule.jsp">
+				<div class="flex-container">
+					<span>
+						<label for="transitLineName">Transit Line Name</label>
+						<input id="transitLineName" name="transitLineName" required/>
+					</span>
+					<span>
+						<label for="trainID">Train ID</label>
+						<input id="trainID" name="trainID" required/>
+					</span>
+					<span>
+						<label for="originStationID">Origin Station ID</label>
+						<input id="originStationID" name="originStationID" required/>
+					</span>
+					<span>
+						<label for="destinationStationID">Destination Station ID</label>
+						<input id="destinationStationID" name="destinationStationID" required/>
+					</span>
+					<span>
+						<label for="arrivalTime">Arrival Time</label>
+						<input id="arrivalTime" name="arrivalTime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
+					</span>
+					<span>
+						<label for="departTime">Depart Time</label>
+						<input id="departTime" name="departTime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
+					</span>
+					<span>
+						<label for="tripType">Trip Type</label>
+						<input id="tripType" name="tripType" required/>
+					</span>
+					<span>
+						<label for="fixedFare">fixedFare</label>
+						<input id="fixedFare" name="fixedFare" required/>
+					</span>
+					<button type="submit"> Create </button>
+				</div>
+			</form>
+		</div>
+		<div>
+			<h2>
+				Create Stops
+			</h2>
+			<form method="post" action="createStop.jsp">
+				<div class="flex-container">
+					<span>
+						<label for="stopStationID">Stop Station ID</label>
+						<input id="stopStationID" name="stopStationID" required/>
+					</span>
+					<span>
+						<label for="transitLineName">Transit Line Name</label>
+						<input id="transitLineName" name="transitLineName" required/>
+					</span>
+					<span>
+						<label for="trainID">Train ID</label>
+						<input id="trainID" name="trainID" required/>
+					</span>
+					<span>
+						<label for="originStationID">Origin Station ID</label>
+						<input id="originStationID" name="originStationID" required/>
+					</span>
+					<span>
+						<label for="destinationStationID">Destination Station ID</label>
+						<input id="destinationStationID" name="destinationStationID" required/>
+					</span>
+					<span>
+						<label for="arrivalTime">Arrival Time</label>
+						<input id="arrivalTime" name="arrivalTime" placeholder="hh:mm:ss" required/>
+					</span>
+					<span>
+						<label for="departTime">Depart Time</label>
+						<input id="departTime" name="departTime" placeholder="hh:mm:ss" required/>
+					</span>
+					<span>
+						<label for="stopNumber">Stop Number</label>
+						<input id="stopNumber" name="stopNumber" required/>
+					</span>
+					<span>						
+						<label for="fare">Fare</label>
+						<input id="fare" name="fare" required/>
+					</span>
+					<button type="submit"> Create </button>
+				</div>
+				
+			</form>
+		</div>
 	</div>
 	<div>
 		<h2>

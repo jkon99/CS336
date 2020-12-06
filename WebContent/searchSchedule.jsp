@@ -177,17 +177,20 @@
 				<legend>
 					Pick Schedules or Stops or Both!
 				</legend>
-				<label for="schedule"> Schedule</label>
-				<input id="schedule" value="schedule" type="checkbox" name="schedule"/>
-				<label for="stop"> Stop</label>
-				<input id="stop" value="stop" type="checkbox" name="stop"/>
-			</fieldset>
+			<div class="flex-container">
+				<span>
+					<label for="stop"> Stop</label>
+					<input id="stop" value="stop" type="checkbox" name="stop"/>
+				</span>
+				<span>
+					<label for="schedule"> Schedule</label>
+					<input id="schedule" value="schedule" type="checkbox" name="schedule"/>
+				</span>
+			</div>
+				
+				
 			<fieldset>
-				<legend> Sort By </legend>
-				<fieldset>
-					<legend>
-						Stop [Sort By]
-					</legend>
+				<legend> Stop [Sort By]</legend>
 					<span>
 						<input id="stopStation" type="checkbox" name="stopStation" value="stopStationID" />
 						<label for="stopStation">Stop Station ID</label>
@@ -369,8 +372,8 @@
 						
 					</span>
 				</fieldset>
-			</fieldset>
 			<button type="submit"> Submit </button>
+			</fieldset>
 		</form>
 	</div>
 	
