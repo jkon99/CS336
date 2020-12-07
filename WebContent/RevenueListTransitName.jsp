@@ -28,13 +28,10 @@ Connection con = db.getConnection();
 Statement st = con.createStatement();
 ResultSet result;
 
-String customername = request.getParameter("customername") + "";
-String transitName = request.getParameter("transitname") + "";
+String transitname = request.getParameter("transitname") + "";
 
-result = st.executeQuery("select sum(totalfare)as revenue from Reservation where transitLineName ='"+transitname+"' or username = '"+customername+"' ");
-
+result = st.executeQuery("select sum(totalfare)as revenue from Reservation where transitLineName ='"+transitname+"'");
 out.println("Revenue per "+transitname+" is:");
-out.println("Revenue per "+customername+" is:");
 
 while(result.next()){
 	if(result.getString("revenue")==null){
@@ -44,6 +41,7 @@ while(result.next()){
 		out.println("$" + result.getString("revenue"));
 	}
 }
+
 con.close();
 
 }catch(Exception e){
