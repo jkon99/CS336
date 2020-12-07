@@ -318,13 +318,21 @@
 					</form>
 				</div>
 				<div>
-					<h2> Get Reservation List </h2>
-					<form method ="post" action ="ReservationList.jsp">
+					<h2> Get Reservation List per Customer Name</h2>
+					<form method ="post" action ="ReservationCustomerName.jsp">
 						<div class="flex-container"> 
 							<span>
 								<label for="customername"> Customer Name </label>
 								<input id= "customername" name= "customername" required/>
 							</span>
+							<button type = "submit"> Search </button>
+						</div>
+					</form>
+				</div>
+				<div>
+					<h2> Get Reservation List per Transit Line</h2>
+					<form method ="post" action="ReservationTransitName.jsp">
+						<div class="flex-container">
 							<span>
 								<label for ="transitname"> Transit Line Name </label>
 								<input id = "transitname" name ="transitname" required/>
@@ -335,13 +343,20 @@
 					</form>
 				</div>
 				<div>
-					<h2> Revenue List</h2>
-					<form method= "post" action="RevenueList.jsp">
+					<h2> Revenue List per Customer Name</h2>
+					<form method= "post" action="RevenueCustomerName.jsp">
 						<div class="flex-container">
 							<span>
 								<label for="customername"> Revenue by Customer Name:</label>
 								<input id="customername" name="customername" required/>
 							</span>
+							<button type ="submit"> Search </button>
+						</div>
+					</form>
+				</div>
+				<div>
+					<h2> Revenue List per Transit Line</h2>
+					<form method ="post" action="RevenueListTransitName.jsp">
 							<span>
 								<label for="transitname"> Revenue by Transit Line Name: </label>
 								<input id="transitname" name="transitname" required/>
