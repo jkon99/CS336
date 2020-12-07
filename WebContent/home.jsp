@@ -365,7 +365,20 @@
 						</div>
 					</form>
 				</div>
-				
+				<div>
+					<h2> Edit Train Schedule Information </h2>
+					<form method="post" action="EditTrainInfo.jsp">
+					<label for="trainID"> Train ID:</label>
+					<input id="trainID" name="trainID" required/>
+					<label for="transitLineName"> transit line name: </label>
+					<input id="transitLineName" name="transitLineName" required/>
+					<label for="originStationID"> Origin Station ID: </label>
+					<input id="originStationID" name="originStationID" required/>
+					<label for="destinationStationID" > Destination Station ID: </label>
+					<input id="destinationStationID" name="destinationStationID" required/>
+					<button type="submit"> Edit </button>
+					</form>
+	</div>
 				<div>
 					Click <a href="betterCreate.jsp">here</a> for better create.
 				</div>
