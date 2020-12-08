@@ -397,7 +397,7 @@
 				</div>
 				<div>
 					<h2> Edit Train Schedule Information </h2>
-					<form method="post" action="EditTrainInfo.jsp">
+					<form method="post" action="HandleEditTrainInfo.jsp">
 						<div class="flex-container">
 							<span>
 								<label for="trainID"> Train ID:</label>
