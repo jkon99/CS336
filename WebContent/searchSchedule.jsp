@@ -38,10 +38,32 @@
 	String originStationID = (String) request.getParameter("originStationID");
 	String destinationStationID = (String) request.getParameter("destinationStationID");
 	String departTime = (String) request.getParameter("travelDatetime");
+	boolean date = false;
+	if(departTime.contains("-")){
+		date = true;
+		System.out.println("Entered date");
+	}
+	boolean time = false;
+	if(departTime.contains(":")){
+		time = true;
+		System.out.println("Entered Time");
+	}
+	String enteredDateTime = "";
 	try{
 		ApplicationDB db = new ApplicationDB();	
 		Connection con = db.getConnection();
-		String insert = "select * from Schedule where originStationID = ? and destinationStationID = ? and departDatetime = ?;";
+		String insert = "";
+		if(time && date){
+			insert = "select * from Schedule where originStationID = ? and destinationStationID = ? and departDatetime = ?;";
+			enteredDateTime = "0";
+		}else if(date){
+			insert = "select * from Schedule where originStationID = ? and destinationStationID = ? and DATE(departDatetime) = ?;";
+			enteredDateTime = "1";
+		}else{
+			insert = "select * from Schedule where originStationID = ? and destinationStationID = ? and TIME(departDatetime) = ?;";
+			enteredDateTime = "2";
+		}
+		
 		PreparedStatement insertUser = con.prepareStatement(insert);
 		ArrayList<String> transitLineNames = new ArrayList<String>();
 		ArrayList<String> trainIDs = new ArrayList<String>();
@@ -172,7 +194,7 @@
 		</h2>
 		<form method="post" action="sortBySchedule.jsp">
 			<input type="hidden" name="stopNames" value="<%= request.getAttribute("stopInformation") %>"/>
-			<input type="hidden" name="scheduleNames" value="<%= ((String) request.getParameter("originStationID")) + "," + ((String) request.getParameter("destinationStationID")) + "," + ((String) request.getParameter("travelDatetime")) %>" />
+			<input type="hidden" name="scheduleNames" value="<%=((String) request.getParameter("originStationID")) + "," + ((String) request.getParameter("destinationStationID")) + "," + ((String) request.getParameter("travelDatetime")) + "," + ((String) enteredDateTime) %>" />
 			<fieldset>
 				<legend>
 					Pick Schedules or Stops or Both!

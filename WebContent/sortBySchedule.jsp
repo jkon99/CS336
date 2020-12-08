@@ -76,7 +76,15 @@
 				orderByMeta.add(request.getParameter("tripTypeOrderby"));
 				orderByMeta.add(request.getParameter("fareOrderby"));
 			
-				String query = "select * from Schedule where originStationID = ? and destinationStationID = ? and departDatetime = ?";
+				String query = ""; 
+				System.out.println(scheduleMetaData[3]);
+				if(Integer.valueOf(scheduleMetaData[3]) == 0){
+					query = "select * from Schedule where originStationID = ? and destinationStationID = ? and departDatetime = ?";
+				}else if(Integer.valueOf(scheduleMetaData[3]) == 1){
+					query = "select * from Schedule where originStationID = ? and destinationStationID = ? and DATE(departDatetime) = ?";
+				}else{
+					query = "select * from Schedule where originStationID = ? and destinationStationID = ? and TIME(departDatetime) = ?";
+				}
 				for(String s : orderBy){
 					if(s != null){
 						query += " order by";
@@ -88,7 +96,7 @@
 						query += " " + orderBy.get(i) + " " + orderByMeta.get(i) + ",";
 					}					
 				}
-				if(query.equals("select * from Schedule where originStationID = ? and destinationStationID = ? and departDatetime = ?")){
+				if(query.charAt(query.length() - 1) != ','){
 					query += ";";
 				}else{
 					query = query.substring(0, query.length() - 1) + ";";
