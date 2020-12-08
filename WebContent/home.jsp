@@ -599,6 +599,19 @@
 			  				<button type="submit">Delete</button>
 			  			</div>
 					</form>
+				
+				<form method ="post" action="DeleteScheduleInfo.jsp">
+					<div class="flex-container">
+						<span>
+							<label for="trainID"> Train ID: </label>
+							<input id="trainID" name="trainID" required/>
+				</span>
+				<button type="submit">Delete</button>
+			
+			</div>
+			
+			</form>
+				
 			</div>
 		</div>
 		<% } %>
