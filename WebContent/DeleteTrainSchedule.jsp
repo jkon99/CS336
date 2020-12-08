@@ -24,17 +24,16 @@
 			
             
             String deletetransitLineName = request.getParameter("deleteTLN");
-            String deletetrainID = request.getParameter("deleteSchedule");
+            String deletetrainID = request.getParameter("deletetrainID");
             String deleteoriginStationID = request.getParameter("deleteoriginID");
             String deletedestinationStationID = request.getParameter("deletedestID");
-        	if(request.getParameter("deleteSchedule")!=null){
-        	
+        	if(request.getParameter("deleteTLN")!= null){
 	        	PreparedStatement stsmt;
 	        	stsmt=con.prepareStatement("DELETE FROM Schedule WHERE transitLineName= ? and trainID = ? and originStationID = ? and destinationStationID = ?");
 	        	stsmt.setString(1,deletetransitLineName);
-	        	stsmt.setString(2, deletetrainID);
-	        	stsmt.setString(3,deleteoriginStationID);
-	        	stsmt.setString(4, deletedestinationStationID);
+	        	stsmt.setInt(2, Integer.valueOf(deletetrainID));
+	        	stsmt.setInt(3, Integer.valueOf(deleteoriginStationID));
+	        	stsmt.setInt(4, Integer.valueOf(deletedestinationStationID));
 	        	stsmt.executeUpdate();
 	        	stsmt.close();
 	        	con.close();
@@ -42,12 +41,6 @@
 	        	response.setHeader("Refresh", "3;home.jsp");
         	}
         	else{
-        		transitLineName = request.getParameter("transitLineName");
-        		trainID = request.getParameter("trainID");
-        		originStationID = request.getParameter("originStationID");
-        		destinationStationID = request.getParameter("destinationStationID");
-
-        		
 	            if(request.getParameter("arrival_Datetime").isEmpty()){
 	            	arrivalDatetime = "NULL";
 	            }
@@ -70,7 +63,7 @@
 	            }
 	           //
 	           if(request.getParameter("fixed_fare").isEmpty()){
-	        	   fixedFare = "NULL";
+	        	   fixedFare = "0";
 	           }
 	           else{
 	        	   fixedFare = request.getParameter("fixed_fare");
@@ -78,19 +71,16 @@
 	           }
 			    //Create a SQL statement
 	            PreparedStatement pstmt;
-			    pstmt = con.prepareStatement("UPDATE Schedule SET transitLineName = ?, trainID = ?, originStationID = ?, destinationStationID = ?, arrivalDatetime = ?, departDatetime = ?, tripType = ?, fixedFare = ? WHERE transitLineName = ? and trainID = ? and originStationID = ? and destinationStationID = ?");
-			    pstmt.setString(1,transitLineName);
-			    pstmt.setString(2,trainID);
-	            pstmt.setString(3,originStationID);
-	            pstmt.setString(4,destinationStationID);
-	            pstmt.setString(5,arrivalDatetime);
-	            pstmt.setString(6,departDatetime);
-	            pstmt.setString(7,tripType);
-	            pstmt.setString(8,fixedFare);
-	            pstmt.setString(9,updatetransitLineName);
-	            pstmt.setString(10,updatetrainID);
-	            pstmt.setString(11,updateoriginStationID);
-	            pstmt.setString(12,updatedestinationStationID);
+			    pstmt = con.prepareStatement("UPDATE Schedule SET arrivalDatetime = ?, departDatetime = ?, tripType = ?, fixedFare = ? WHERE transitLineName = ? and trainID = ? and originStationID = ? and destinationStationID = ?");
+	            pstmt.setString(1,arrivalDatetime);
+	            pstmt.setString(2,departDatetime);
+	            pstmt.setString(3,tripType);
+	            pstmt.setDouble(4,Double.valueOf(fixedFare));
+	            pstmt.setString(5,updatetransitLineName);
+	            pstmt.setInt(6,Integer.valueOf(updatetrainID));
+	            pstmt.setInt(7,Integer.valueOf(updateoriginStationID));
+	            pstmt.setInt(8,Integer.valueOf(updatedestinationStationID));
+	            System.out.println(pstmt);
 	            pstmt.executeUpdate();
 	            out.println("Train Schedule has been updated! You will now be redirected back to the home page");
 	            pstmt.close();

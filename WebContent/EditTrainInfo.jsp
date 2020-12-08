@@ -33,17 +33,17 @@
 	PreparedStatement pstmt;
 	pstmt = con.prepareStatement("UPDATE Schedule set transitLineName = ?, trainID = ?, originStationID = ?, destinationStationID = ?, arrivalDatetime = ?, departDatetime = ?, tripType = ?, fixedFare = ? WHERE transitLineName = ? and trainID = ? and originStationID = ? and destinationStationID = ?");
 	pstmt.setString(1,transitLineName);
-	pstmt.setString(2,trainID);
-	pstmt.setString(3,originStationID);
-	pstmt.setString(4,destinationStationID);
+	pstmt.setInt(2,Integer.valueOf(trainID));
+	pstmt.setInt(3,Integer.valueOf(originStationID));
+	pstmt.setInt(4,Integer.valueOf(destinationStationID));
 	pstmt.setString(5,arrivalDatetime);
 	pstmt.setString(6,departDatetime);
 	pstmt.setString(7,tripType);
-	pstmt.setString(8,fixedFare);
+	pstmt.setDouble(8,Double.valueOf(fixedFare));
 	pstmt.setString(9,updatetransitLineName);
-	pstmt.setString(10,updatetrainID);
-	pstmt.setString(11,updateoriginStationID);
-	pstmt.setString(12,updatedestinationStationID);
+	pstmt.setInt(10,Integer.valueOf(updatetrainID));
+	pstmt.setInt(11,Integer.valueOf(updateoriginStationID));
+	pstmt.setInt(12,Integer.valueOf(updatedestinationStationID));
 	pstmt.executeUpdate();
 	out.println("Information has been updated! Will redirect to home page");
 

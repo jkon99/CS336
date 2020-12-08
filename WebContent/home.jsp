@@ -400,12 +400,12 @@
 					<form method="post" action="HandleEditTrainInfo.jsp">
 						<div class="flex-container">
 							<span>
-								<label for="trainID"> Train ID:</label>
-								<input id="trainID" name="trainID" required/>
-							</span>
-							<span>
 								<label for="transitLineName"> transit line name: </label>
 								<input id="transitLineName" name="transitLineName" required/>
+							</span>
+							<span>
+								<label for="trainID"> Train ID:</label>
+								<input id="trainID" name="trainID" required/>
 							</span>
 							<span>
 								<label for="originStationID"> Origin Station ID: </label>
@@ -419,6 +419,33 @@
 						</div>
 					</form>
 				</div>
+				<div>
+					<h2>
+						Delete Schedules
+					</h2>				
+					<form method ="post" action="DeleteScheduleInfo.jsp">
+						<div class="flex-container">
+							<span>
+								<label for="transitLineName"> transit line name: </label>
+								<input id="transitLineName" name="transitLineName" required/>
+							</span>
+							<span>
+								<label for="trainID"> Train ID:</label>
+								<input id="trainID" name="trainID" required/>
+							</span>
+							<span>
+								<label for="originStationID"> Origin Station ID: </label>
+								<input id="originStationID" name="originStationID" required/>
+							</span>
+							<span>
+								<label for="destinationStationID" > Destination Station ID: </label>
+								<input id="destinationStationID" name="destinationStationID" required/>
+							</span>
+							<button type="submit">Delete</button>
+						</div>
+					</form>
+				</div>
+				
 				<div>
 					Click <a href="betterCreate.jsp">here</a> for better create.
 				</div>
@@ -559,6 +586,10 @@
 				</form>
 			</div>
 			<div>
+				Click <a href="betterCreate.jsp">here</a> for better create.
+			</div>
+			
+			<div>
 				<h2>
 					Check for Revenue
 				</h2>
@@ -572,6 +603,8 @@
 					</div>				
 				</form>
 			</div>
+				
+			
 			<div>
 				<h2>
 					Update Employee Information
@@ -599,19 +632,6 @@
 			  				<button type="submit">Delete</button>
 			  			</div>
 					</form>
-				
-				<form method ="post" action="DeleteScheduleInfo.jsp">
-					<div class="flex-container">
-						<span>
-							<label for="trainID"> Train ID: </label>
-							<input id="trainID" name="trainID" required/>
-				</span>
-				<button type="submit">Delete</button>
-			
-			</div>
-			
-			</form>
-				
 			</div>
 		</div>
 		<% } %>

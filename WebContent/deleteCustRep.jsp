@@ -35,9 +35,6 @@
         		
         	}
         	else{
-        		
-	            ssn = request.getParameter("ssn");
-	            
 	            if(request.getParameter("user_name").isEmpty()){
 	            	username = "NULL";
 	            }
@@ -63,12 +60,11 @@
             
 			    //Create a SQL statement
 	            PreparedStatement pstmt;
-			    pstmt = con.prepareStatement("UPDATE Employee SET username = ?, firstname = ?, lastname = ?, ssn = ?  WHERE ssn = ?;");
+			    pstmt = con.prepareStatement("UPDATE Employee SET username = ?, firstname = ?, lastname = ? WHERE ssn = ?;");
 			    pstmt.setString(1,username);
 			    pstmt.setString(2,firstName);
 	            pstmt.setString(3,lastName);
-	            pstmt.setString(4,ssn);
-	            pstmt.setString(5,updateSSN);
+	            pstmt.setString(4,updateSSN);
 	            pstmt.executeUpdate();
 	            out.println("Employee has been updated! Redirecting back to home page");
 	            pstmt.close();

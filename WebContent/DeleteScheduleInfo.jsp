@@ -32,7 +32,7 @@
        	
        		
             ResultSet result = st.executeQuery("SELECT * from Schedule where trainID ='" + trainID + "' and transitLineName = '" + transitLineName +"' and originStationID = '"+ originStationID + "' and destinationStationID ='" +destinationStationID+"'");
-           
+           	
        		
        		if(!result.isBeforeFirst()){
 				 out.println("There is no train schedule with those attributes.");
@@ -57,54 +57,37 @@
 	           <p>
 				Choose the fields you want to delete and leave them blank
 				</p>
-	            <tr>
-				    <td>transit line name</td>
-				    <td><input type="text" name="transitLineName" value="<%=transitLineName %>"></td>
-			    </tr>
-	            <tr>
-				    <td>Train ID</td>
-				    <td><input type="text" name="trainID" value="<%=trainID %>"></td>
-			    </tr>
-			   	    
-	            <tr>
-				    <td>Origin Station ID</td>
-				    <td><input type="text" name="originStationID" value="<%=originStationID %>"></td>
-			    </tr>
-			    <tr>
-				    <td>Destination Station ID</td>
-				    <td><input type="text" name="destinationStationID" value="<%=destinationStationID %>"></td>
-			    </tr>
 			    <tr>
 			    <td> Arrival Date Time </td>
 			    <td><input type="text" name ="arrival_Datetime"	value ="<%=arrivalDatetime %>"></td>
-			</tr>
-			<tr>
-			<td> Depart Date Time </td>
-			<td><input type="text" name="depart_Datetime" value="<%=departDatetime %>"></td>
-			</tr>
-			<tr>
-			<td> Trip Type </td>
-			<td><input type="text" name="trip_Type" value="<%=tripType %>"></td>
-			</tr>
-			<tr>
-			<td> Fixed Fare </td>
-			<td><input type="text" name ="fixed_fare" value="<%=fixedFare %>"></td>
-			</tr>
+				</tr>
+				<tr>
+				<td> Depart Date Time </td>
+				<td><input type="text" name="depart_Datetime" value="<%=departDatetime %>"></td>
+				</tr>
+				<tr>
+				<td> Trip Type </td>
+				<td><input type="text" name="trip_Type" value="<%=tripType %>"></td>
+				</tr>
+				<tr>
+				<td> Fixed Fare </td>
+				<td><input type="text" name ="fixed_fare" value="<%=fixedFare %>"></td>
+				</tr>
 				<tr>
 				    <td><input type="submit" name="btn_update" value="Update"></td> 
 			    </tr>
 			    <tr>
-	<td><input type ="hidden" name="transitname_original" value="<%=transitLineName%>"></td>
-	</tr>
-	<tr>
-	<td><input type="hidden" name="trainID_original" value="<%=trainID%>"></td>
-	</tr>
-	<tr>
-	<td><input type= "hidden" name="originID_original" value="<%=originStationID %>"></td>
-	</tr>
-	<tr>
-	<td><input type="hidden" name="destID_original" value="<%=destinationStationID %>"></td>
-	</tr>
+				<td><input type ="hidden" name="transitname_original" value="<%=transitLineName%>"></td>
+				</tr>
+				<tr>
+				<td><input type="hidden" name="trainID_original" value="<%=trainID%>"></td>
+				</tr>
+				<tr>
+				<td><input type= "hidden" name="originID_original" value="<%=originStationID %>"></td>
+				</tr>
+				<tr>
+				<td><input type="hidden" name="destID_original" value="<%=destinationStationID %>"></td>
+				</tr>
 			    	
 	         <%
 	            }
@@ -123,12 +106,17 @@
 		      	 <h2>
 		      	  Delete a Train Schedule from the System
 		      	 </h2>
-	
+					<p>
+						If you would like to delete Transit Line name or TrainID or originStation ID or destinationStation ID, you will have to delete the whole train Schedule.
+					</p>
 		      	 <form method="post" action="DeleteTrainSchedule.jsp">
 		      	 	 <div class="flex-container">
 		      	 	 	<input type="submit" value="Delete Train Schedule">
 		      	 	 	<span>
-		      		 		<input type="text" name="deletetrainID" value="<%=trainID%>">
+		      		 		<input type="hidden" name="deleteTLN" value="<%=transitLineName%>">
+		      		 		<input type="hidden" name="deletetrainID" value="<%=trainID%>">
+		      	 	 		<input type="hidden" name="deletedestID" value="<%=destinationStationID%>">
+		      	 	 		<input type="hidden" name="deleteoriginID" value="<%=originStationID%>">
 		      	 	 	</span>
 		      	 	 </div>
 		         </form> 

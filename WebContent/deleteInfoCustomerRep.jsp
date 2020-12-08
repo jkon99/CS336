@@ -49,11 +49,7 @@
 	            %>
 	           <p>
 				Choose the fields you want to delete and leave them blank
-				</p>
-	            <tr>
-				    <td>ssn</td>
-				    <td><input type="text" name="ssn" value="<%=ssn %>"></td>
-			    </tr>
+			   </p>
 	            <tr>
 				    <td>user name</td>
 				    <td><input type="text" name="user_name" value="<%=username %>"></td>
@@ -71,8 +67,7 @@
 				<tr>
 				    <td><input type="submit" name="btn_update" value="Update"></td> 
 			    </tr>
-			    	
-			    	<input type="hidden" name="ssn_original" value="<%=ssn %>">
+			   	
 	            <%
 	            }
             
@@ -84,13 +79,13 @@
 	            %>
 	
 		      	  </table> 
-		      	  
+		      	  <input type="hidden" name="ssn_original" value="<%=ssn%>">
 		      	 </form>
 		      	 
 		      	 <h2>
-		      	  Delete a Customer Rep from the System!
+		      	  Delete a Customer Rep from the System! (If you wish to delete the SSN, use this button)
 		      	 </h2>
-	
+					
 		      	 <form method="post" action="deleteCustRep.jsp">
 		      	 	 <div class="flex-container">
 		      	 	 	<input type="submit" value="Delete Employee">
