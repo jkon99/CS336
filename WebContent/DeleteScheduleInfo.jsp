@@ -29,7 +29,7 @@
        		String trainID = request.getParameter("trainID");
        		String originStationID = request.getParameter("originStationID");
        		String destinationStationID = request.getParameter("destinationStationID");
-       		//error check for SSN
+       	
        		
             ResultSet result = st.executeQuery("SELECT * from Schedule where trainID ='" + trainID + "' and transitLineName = '" + transitLineName +"' and originStationID = '"+ originStationID + "' and destinationStationID ='" +destinationStationID+"'");
            
