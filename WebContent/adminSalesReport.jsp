@@ -56,7 +56,7 @@ Sales report acquired
 		
 			result.close();
 		}
-		
+		con.close();
 	}catch(Exception e){
 			System.out.println("Query Failed!");
 			System.out.println(e);
