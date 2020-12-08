@@ -16,25 +16,22 @@
 
 <%
 try{
-ApplicationDB db= new ApplicationDB();
-Connection con = db.getConnection();
-Statement st = con.createStatement();
-ResultSet result;
-
-String transitLineName = request.getParameter("transitLineName") + "";
-String totalReservation = request.getParameter("Total_Reservation") + "";
-
-result = st.executeQuery("select transitLineName, count(*) as \"Total_Reservation\" from Reservation group by transitLineName order by Total_Reservation DESC limit 5");
-while(result.next()){ %>
-<tr>
-<td> <%= result.getString("transitLineName") %></td>
-<td> <%= result.getString("Total_Reservation") %></td>
-</tr>
-
-<%
-}
-
-
+	ApplicationDB db= new ApplicationDB();
+	Connection con = db.getConnection();
+	Statement st = con.createStatement();
+	ResultSet result;
+	
+	result = st.executeQuery("select transitLineName, count(*) as \"Total_Reservation\" from Reservation group by transitLineName order by Total_Reservation DESC limit 5");
+	while(result.next()){ %>
+	<tr>
+	<td> <%= result.getString("transitLineName") %></td>
+	<td> <%= result.getString("Total_Reservation") %></td>
+	</tr>
+	
+	<%
+	}
+	result.close();
+	con.close();
 }catch(Exception e){
 		System.out.println("Query failed!");
 		System.out.println(e);

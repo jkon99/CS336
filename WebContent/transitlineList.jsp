@@ -26,7 +26,7 @@
 	String transitline = request.getParameter("transitlineID") + "";
 	String reservationDate = request.getParameter("reservationDate") + ""; 
 	
-	result = st.executeQuery("select username from Reservation where transitLineName= '"+transitline+"' and reservationDate= '"+reservationDate+"';"); 
+	result = st.executeQuery("select distinct username from Reservation where transitLineName= '"+transitline+"' and reservationDate= '"+reservationDate+"';"); 
 	
 	if(!result.next()){
 		out.println("There is no reservations for this Transit Line and Date");
@@ -69,7 +69,7 @@
 	<%
 	}
 	result.close();
-		
+	con.close();	
 	%>
 
 </body>

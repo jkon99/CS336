@@ -191,7 +191,7 @@
 					</div>
 				</form>
 			</div>
-		<% }else if(((String) session.getAttribute("role")).toLowerCase().equals("employee") || ((String) session.getAttribute("role")).toLowerCase().equals("admin")) { %>
+		<% }else if(((String) session.getAttribute("role")).toLowerCase().equals("employee")){ %>
 			<div>
 				<h2>
 					Create Trains
@@ -317,6 +317,36 @@
 						</div>
 					</form>
 				</div>
+				
+				<div>
+					<h2>
+						Schedule Logs and User Reservations
+					</h2>
+					<form method="post" action="stationSchedules.jsp">
+						<div class="flex-container">
+							<span>
+								<label for="stationID"> Find schedules for Station ID: </label>
+								<input id="stationID" name="stationID" required/>
+							</span>
+							<button type="submit"> Search </button>
+						</div>
+					</form>
+		
+					<form method="post" action="transitlineList.jsp">
+						<div class="flex-container">
+							<span>
+								<label for="transitlineID">Transit Line Name: </label>
+								<input id="transitlineID" name="transitlineID" required/>
+							</span>
+							<span>
+								<label for="reservationDate">Reservation Date: </label>
+								<input id="reservationDate" name="reservationDate" placeholder="YYYY-MM-DD" required/>
+							</span>
+							<button type="submit"> Search</button>
+						</div>
+					</form>
+				</div>
+				
 				<div>
 					<h2> Get Reservation List per Customer Name</h2>
 					<form method ="post" action ="ReservationCustomerName.jsp">
@@ -339,7 +369,6 @@
 							</span>
 							<button type = "submit"> Search </button>
 						</div>
-						
 					</form>
 				</div>
 				<div>
@@ -357,6 +386,7 @@
 				<div>
 					<h2> Revenue List per Transit Line</h2>
 					<form method ="post" action="RevenueListTransitName.jsp">
+						<div class="flex-container">	
 							<span>
 								<label for="transitname"> Revenue by Transit Line Name: </label>
 								<input id="transitname" name="transitname" required/>
@@ -368,17 +398,27 @@
 				<div>
 					<h2> Edit Train Schedule Information </h2>
 					<form method="post" action="EditTrainInfo.jsp">
-					<label for="trainID"> Train ID:</label>
-					<input id="trainID" name="trainID" required/>
-					<label for="transitLineName"> transit line name: </label>
-					<input id="transitLineName" name="transitLineName" required/>
-					<label for="originStationID"> Origin Station ID: </label>
-					<input id="originStationID" name="originStationID" required/>
-					<label for="destinationStationID" > Destination Station ID: </label>
-					<input id="destinationStationID" name="destinationStationID" required/>
-					<button type="submit"> Edit </button>
+						<div class="flex-container">
+							<span>
+								<label for="trainID"> Train ID:</label>
+								<input id="trainID" name="trainID" required/>
+							</span>
+							<span>
+								<label for="transitLineName"> transit line name: </label>
+								<input id="transitLineName" name="transitLineName" required/>
+							</span>
+							<span>
+								<label for="originStationID"> Origin Station ID: </label>
+								<input id="originStationID" name="originStationID" required/>
+							</span>
+							<span>
+								<label for="destinationStationID" > Destination Station ID: </label>
+								<input id="destinationStationID" name="destinationStationID" required/>
+							</span>
+							<button type="submit"> Edit </button>
+						</div>
 					</form>
-	</div>
+				</div>
 				<div>
 					Click <a href="betterCreate.jsp">here</a> for better create.
 				</div>
@@ -392,9 +432,176 @@
 	</div>
 			
 			
-		<% }else{ // Admin
-			
-		} %>
+		<% }else{ // Admin %>
+		<div>
+			<h2>
+				Create Trains
+			</h2>
+			<form method="post" action="createTrain.jsp">
+				<div class="flex-container">
+					<span>
+						<label for="trains">Train ID</label>
+						<input id="trainID" name="trainID" required/>
+					</span>
+					<button type="submit"> Create </button>
+				</div>
+			</form>
+			<h2>
+				Create Stations
+			</h2>
+			<form method="post" action="createStation.jsp">
+				<div class="flex-container">
+					<span>
+						<label for="stationID">Station ID</label>
+						<input id="stationID" name="stationID" required/>
+					</span>
+					<span>
+						<label for="stationName">Station Name</label>
+						<input id="stationName" name="stationName" required/>
+					</span>
+					<span>
+						<label for="state">State</label>
+						<input id="state" name="state" required/>
+					</span>
+					<span>
+						<label for="city">City</label>
+						<input id="city" name="city" required/>
+					</span>
+					<button type="submit"> Create </button>
+				</div>
+			</form>
+			<div>
+				<h2>
+				Create Schedules
+				</h2>
+				<form method="post" action="createSchedule.jsp">
+					<div class="flex-container">
+						<span>
+							<label for="transitLineName">Transit Line Name</label>
+							<input id="transitLineName" name="transitLineName" required/>
+						</span>
+						<span>
+							<label for="trainID">Train ID</label>
+							<input id="trainID" name="trainID" required/>
+						</span>
+						<span>
+							<label for="originStationID">Origin Station ID</label>
+							<input id="originStationID" name="originStationID" required/>
+						</span>
+						<span>
+							<label for="destinationStationID">Destination Station ID</label>
+							<input id="destinationStationID" name="destinationStationID" required/>
+						</span>
+						<span>
+							<label for="arrivalTime">Arrival Time</label>
+							<input id="arrivalTime" name="arrivalTime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
+						</span>
+						<span>
+							<label for="departTime">Depart Time</label>
+							<input id="departTime" name="departTime" placeholder="YYYY-MM-DD hh:mm:ss" required/>
+						</span>
+						<span>
+							<label for="tripType">Trip Type</label>
+							<input id="tripType" name="tripType" required/>
+						</span>
+						<span>
+							<label for="fixedFare">fixedFare</label>
+							<input id="fixedFare" name="fixedFare" required/>
+						</span>
+						<button type="submit"> Create </button>
+					</div>
+				</form>
+			</div>
+			<div>
+				<h2>
+					Create Stops
+				</h2>
+				<form method="post" action="createStop.jsp">
+					<div class="flex-container">
+						<span>
+							<label for="stopStationID">Stop Station ID</label>
+							<input id="stopStationID" name="stopStationID" required/>
+						</span>
+						<span>
+							<label for="transitLineName">Transit Line Name</label>
+							<input id="transitLineName" name="transitLineName" required/>
+						</span>
+						<span>
+							<label for="trainID">Train ID</label>
+							<input id="trainID" name="trainID" required/>
+						</span>
+						<span>
+							<label for="originStationID">Origin Station ID</label>
+							<input id="originStationID" name="originStationID" required/>
+						</span>
+						<span>
+							<label for="destinationStationID">Destination Station ID</label>
+							<input id="destinationStationID" name="destinationStationID" required/>
+						</span>
+						<span>
+							<label for="arrivalTime">Arrival Time</label>
+							<input id="arrivalTime" name="arrivalTime" placeholder="hh:mm:ss" required/>
+						</span>
+						<span>
+							<label for="departTime">Depart Time</label>
+							<input id="departTime" name="departTime" placeholder="hh:mm:ss" required/>
+						</span>
+						<span>
+							<label for="stopNumber">Stop Number</label>
+							<input id="stopNumber" name="stopNumber" required/>
+						</span>
+						<span>						
+							<label for="fare">Fare</label>
+							<input id="fare" name="fare" required/>
+						</span>
+						<button type="submit"> Create </button>
+					</div>
+				</form>
+			</div>
+			<div>
+				<h2>
+					Check for Revenue
+				</h2>
+				<form method="post" action="adminSalesReport.jsp">
+					<div class="flex-container">
+						<span>
+							<label for="month"> Find sales report for: </label>
+							<input id="month" name="month" placeholder="MM as 01:Jan...12:Dec" required/>
+						</span>
+						<button type="submit"> Search </button>	
+					</div>				
+				</form>
+			</div>
+			<div>
+				<h2>
+					Update Employee Information
+				</h2>
+			 		<form method="post" action="addInfoCustomerRep.jsp">
+			 			<button type="submit">Add</button>
+			 		</form>
+			 		
+					<form method="post" action="editInfoCustomerRep.jsp">			
+						<div class="flex-container">
+							<span>
+								<label for="ssn"> Employee's SSN: </label>
+								<input id="ssn" name="ssn" placeholder="xxxxxxxxx" maxLength="9" required>
+							</span>
+							<button type="submit">Edit</button>
+						</div>
+					</form>
+			  		
+			  		<form method="post" action="deleteInfoCustomerRep.jsp">
+			  			<div class="flex-container">
+			  				<span>
+			  					<label for="ssn"> Employee's SSN: </label>
+								<input id="ssn" name="ssn" placeholder="xxxxxxxxx" maxLength="9" required>
+			  				</span>
+			  				<button type="submit">Delete</button>
+			  			</div>
+					</form>
+			</div>
+		</div>
+		<% } %>
 	
 </body>
 </html>

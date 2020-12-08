@@ -78,7 +78,7 @@
 		</tbody>
 		</table> <% 
 		result.close();
-		
+		con.close();
 		 %>
 		 <a href="home.jsp"> Refer back to the Customer Home Page</a>
 		 <% 

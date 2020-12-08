@@ -92,10 +92,13 @@
 		      	 </h2>
 	
 		      	 <form method="post" action="deleteCustRep.jsp">
-		      	 	<input type="submit" value="Delete Employee">
-		      		 <input type="text" name="deleteEmployee" value="<%=ssn%>">
-		      		 
-		            </form> 
+		      	 	 <div class="flex-container">
+		      	 	 	<input type="submit" value="Delete Employee">
+		      	 	 	<span>
+		      		 		<input type="text" name="deleteEmployee" value="<%=ssn%>">
+		      	 	 	</span>
+		      	 	 </div>
+		         </form> 
 	            
 	            <%
             } 

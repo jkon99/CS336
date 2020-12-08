@@ -13,6 +13,9 @@
 <link rel="stylesheet" href="home.css">
 </head>
 <body>
+	<h1 class="title">
+		Train Reservation System
+	</h1>
 	<div>
 		<% 
 		try{
