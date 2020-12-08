@@ -36,21 +36,21 @@
         	}
         	else{
 	            if(request.getParameter("user_name").isEmpty()){
-	            	username = "NULL";
+	            	username = null;
 	            }
 	            else{
 	            	username= request.getParameter("user_name");
 	            }
 	            //
 	            if(request.getParameter("first_name").isEmpty()){
-	            	firstName = "NULL";
+	            	firstName = null;
 	            }
 	            else{
 	            	firstName= request.getParameter("first_name");
 	            }
 	            //
 	            if(request.getParameter("last_name").isEmpty()){
-	            	lastName = "NULL";
+	            	lastName = null;
 	            }
 	            else{
 	            	lastName= request.getParameter("last_name");

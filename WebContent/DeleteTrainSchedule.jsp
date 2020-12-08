@@ -34,6 +34,7 @@
 	        	stsmt.setInt(2, Integer.valueOf(deletetrainID));
 	        	stsmt.setInt(3, Integer.valueOf(deleteoriginStationID));
 	        	stsmt.setInt(4, Integer.valueOf(deletedestinationStationID));
+	        	System.out.println(stsmt);
 	        	stsmt.executeUpdate();
 	        	stsmt.close();
 	        	con.close();
@@ -42,21 +43,21 @@
         	}
         	else{
 	            if(request.getParameter("arrival_Datetime").isEmpty()){
-	            	arrivalDatetime = "NULL";
+	            	arrivalDatetime = null;
 	            }
 	            else {
 	            	arrivalDatetime = request.getParameter("arrival_Datetime");
 	            }
 	            //
 	            if(request.getParameter("depart_Datetime").isEmpty()){
-	            	departDatetime = "NULL";
+	            	departDatetime = null;
 	            }
 	            else {
 	            	departDatetime = request.getParameter("depart_Datetime");
 	            }
 	           //
 	            if(request.getParameter("trip_Type").isEmpty()){
-	            	tripType= "NULL";
+	            	tripType= null;
 	            }
 	            else{
 	            	tripType = request.getParameter("trip_Type");
