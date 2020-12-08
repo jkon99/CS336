@@ -37,7 +37,7 @@
 	try{
 		ApplicationDB db = new ApplicationDB();	
 		Connection con = db.getConnection();
-		String query = "select * from Stop order by transitLineName;";
+		String query = "select * from Stop order by transitLineName DESC, trainID DESC;";
 		PreparedStatement sortBy = con.prepareStatement(query);
 		System.out.println(sortBy);
 		try{
