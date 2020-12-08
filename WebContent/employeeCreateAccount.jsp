@@ -35,7 +35,7 @@
       <label for="password">Password</label>
       <input type="password" class="passwordForm" name="password"  id="password" placeholder="Password" maxlength="20"  required/>
       <label for="ssn">SSN</label>
-      <input class="passwordForm" name="ssn"  id="ssn" placeholder="XXXXXXXXX" maxlength="9" required/>
+      <input class="passwordForm" name="ssn"  id="ssn" placeholder="XXXXXXXXX" minlength="9" maxlength="9" required/>
       <input style="display: none;" type="radio" name="employee" checked/>
 			<div class="submitButton">
         	<button type="submit" name="create">
