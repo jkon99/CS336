@@ -478,7 +478,7 @@
 						<button type="submit"> Submit</button>
 					</form>
 					
-					To browse questions/answers, please click <a href="questionBrowse.jsp">here</a>.
+					To browse questions/answers, please click <a href="viewQuestion.jsp">here</a>.
 				</div>
 				
 				<div>
