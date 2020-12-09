@@ -48,7 +48,7 @@
 	try{
 		ApplicationDB db = new ApplicationDB();	
 		Connection con = db.getConnection();
-		String insert = "update Question set Answer = ? where question = ?;";
+		String insert = "update Question set answer = ? where question = ?;";
 		PreparedStatement insertUser = con.prepareStatement(insert);
 		
 		for(String question_it : questionsArr ){
