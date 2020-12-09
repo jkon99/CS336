@@ -191,6 +191,26 @@
 					</div>
 				</form>
 			</div>
+			
+			<div>
+				<h2>
+					Send a Question
+				</h2>
+					<form method="post" action="questionSubmit.jsp">
+					<label for="Question">Enter your question here: </label>
+					<input id="question" name="question" required/>
+					<br/>
+					<button type="submit"> Submit </button>
+				</form>
+
+				<form method="post" action="questionBrowse.jsp">
+					<label for="browse">To browse questions/answers by keywords, type them in the form. If you want to browse all questions/answers, leave it blank: </label>
+					<input id="browse" name="browse"/>
+					<br/>
+					<button type="submit"> Search </button>
+				</form>
+			</div>
+			
 		<% }else if(((String) session.getAttribute("role")).toLowerCase().equals("employee")){ %>
 			<div>
 				<h2>
@@ -447,6 +467,21 @@
 				</div>
 				
 				<div>
+					<h2>
+						Answer a Question
+					</h2>
+					<form method="post" action="questionAnswer.jsp">
+						<label for="question" > Type question here: </label>
+						<input id="question" name="question" required/>
+						<label for="answer" > Type your answer here: </label>
+						<input id="answer" name="answer" required/>
+						<button type="submit"> Submit</button>
+					</form>
+					
+					To browse questions/answers, please click <a href="questionBrowse.jsp">here</a>.
+				</div>
+				
+				<div>
 					Click <a href="betterCreate.jsp">here</a> for better create.
 				</div>
 				
@@ -456,7 +491,7 @@
 				<div>
 					Click <a href="ActiveTransitLines.jsp">here</a> for the best 5 most active transit lines.
 				</div>
-	</div>
+		</div>
 			
 			
 		<% }else{ // Admin %>

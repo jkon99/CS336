@@ -47,23 +47,24 @@
     	ApplicationDB db = new ApplicationDB();	
 		Connection con = db.getConnection();
 		String browse1 = (String) request.getParameter("browse");
-		
+		String[] browse2 = browse1.split(",");
 		String query = "select * from Question";
-		
+		/**
 		if (request.getParameter("browse") != null) {
 		    query = query + " where question like '%" + browse1 + "%'";
 		}
-		/**
+		*/
+		
 		if (request.getParameter("browse") != null) {
-			query = query +  "  where";
-			for(int i=0; i < browse2.length; i++){
+			query = query +  " where";
+			for(int i = 0; i < browse2.length; i++){
 		    	query = query + " question like '%" + browse2[i] + "%'";
-		    	if (browse2[i+1] != null) {
+		    	if (i + 1 != browse2.length) {
 		    		query = query + " or";
 		    	}
 			}
 		}
-		 **/
+		 
 		query = query + ";" ; 
 
 		System.out.println(query);
