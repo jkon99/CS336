@@ -367,54 +367,7 @@
 					</form>
 				</div>
 				
-				<div>
-					<h2> Get Reservation List per Customer Name</h2>
-					<form method ="post" action ="ReservationCustomerName.jsp">
-						<div class="flex-container"> 
-							<span>
-								<label for="customername"> Customer Name </label>
-								<input id= "customername" name= "customername" required/>
-							</span>
-							<button type = "submit"> Search </button>
-						</div>
-					</form>
-				</div>
-				<div>
-					<h2> Get Reservation List per Transit Line</h2>
-					<form method ="post" action="ReservationTransitName.jsp">
-						<div class="flex-container">
-							<span>
-								<label for ="transitname"> Transit Line Name </label>
-								<input id = "transitname" name ="transitname" required/>
-							</span>
-							<button type = "submit"> Search </button>
-						</div>
-					</form>
-				</div>
-				<div>
-					<h2> Revenue List per Customer Name</h2>
-					<form method= "post" action="RevenueCustomerName.jsp">
-						<div class="flex-container">
-							<span>
-								<label for="customername"> Revenue by Customer Name:</label>
-								<input id="customername" name="customername" required/>
-							</span>
-							<button type ="submit"> Search </button>
-						</div>
-					</form>
-				</div>
-				<div>
-					<h2> Revenue List per Transit Line</h2>
-					<form method ="post" action="RevenueListTransitName.jsp">
-						<div class="flex-container">	
-							<span>
-								<label for="transitname"> Revenue by Transit Line Name: </label>
-								<input id="transitname" name="transitname" required/>
-							</span>
-							<button type = "submit"> Search </button>
-						</div>
-					</form>
-				</div>
+				
 				<div>
 					<h2> Edit Train Schedule Information </h2>
 					<form method="post" action="HandleEditTrainInfo.jsp">
@@ -485,12 +438,7 @@
 					Click <a href="betterCreate.jsp">here</a> for better create.
 				</div>
 				
-				<div>
-					Click <a href="BestCustomer.jsp">here</a> for the best customer.
-				</div>
-				<div>
-					Click <a href="ActiveTransitLines.jsp">here</a> for the best 5 most active transit lines.
-				</div>
+
 		</div>
 			
 			
@@ -625,6 +573,56 @@
 			</div>
 			
 			<div>
+				<h2> Get Reservation List per Customer Name</h2>
+				<form method ="post" action ="ReservationCustomerName.jsp">
+					<div class="flex-container"> 
+						<span>
+							<label for="customername"> Customer Name </label>
+							<input id= "customername" name= "customername" required/>
+						</span>
+						<button type = "submit"> Search </button>
+					</div>
+				</form>
+			</div>
+			<div>
+				<h2> Get Reservation List per Transit Line</h2>
+				<form method ="post" action="ReservationTransitName.jsp">
+					<div class="flex-container">
+						<span>
+							<label for ="transitname"> Transit Line Name </label>
+							<input id = "transitname" name ="transitname" required/>
+						</span>
+						<button type = "submit"> Search </button>
+					</div>
+				</form>
+			</div>
+			<div>
+				<h2> Revenue List per Customer Name</h2>
+				<form method= "post" action="RevenueCustomerName.jsp">
+					<div class="flex-container">
+						<span>
+							<label for="customername"> Revenue by Customer Name:</label>
+							<input id="customername" name="customername" required/>
+						</span>
+						<button type ="submit"> Search </button>
+					</div>
+				</form>
+			</div>
+			<div>
+				<h2> Revenue List per Transit Line</h2>
+				<form method ="post" action="RevenueListTransitName.jsp">
+					<div class="flex-container">	
+						<span>
+							<label for="transitname"> Revenue by Transit Line Name: </label>
+							<input id="transitname" name="transitname" required/>
+						</span>
+						<button type = "submit"> Search </button>
+					</div>
+				</form>
+			</div>
+			
+			
+			<div>
 				<h2>
 					Check for Revenue
 				</h2>
@@ -667,6 +665,13 @@
 			  				<button type="submit">Delete</button>
 			  			</div>
 					</form>
+			</div>
+			
+			<div>
+				Click <a href="BestCustomer.jsp">here</a> for the best customer.
+			</div>
+			<div>
+				Click <a href="ActiveTransitLines.jsp">here</a> for the best 5 most active transit lines.
 			</div>
 		</div>
 		<% } %>

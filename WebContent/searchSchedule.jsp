@@ -9,7 +9,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Schedule Creation</title>
+<title>Search Schedule</title>
 <link rel="stylesheet" href="home.css">
 </head>
 <body>

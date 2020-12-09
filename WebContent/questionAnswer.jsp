@@ -48,13 +48,13 @@
 	try{
 		ApplicationDB db = new ApplicationDB();	
 		Connection con = db.getConnection();
-		String insert = "insert into Question values (?, ?);";
+		String insert = "update Question set Answer = ? where question = ?;";
 		PreparedStatement insertUser = con.prepareStatement(insert);
 		
 		for(String question_it : questionsArr ){
 			for (String answer_it : answerArr) {
-				insertUser.setString(1, question_it);
-				insertUser.setString(2, answer_it);
+				insertUser.setString(1, answer_it);
+				insertUser.setString(2, question_it);
 				try{
 					insertUser.executeUpdate();
 				}catch(Exception e){

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Edit Customer Rep Info</title>
+<title>Delete Customer Rep Info</title>
 </head>
 <body>
 

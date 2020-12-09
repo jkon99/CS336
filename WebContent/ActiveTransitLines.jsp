@@ -8,7 +8,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title> Best Customer</title>
+<title>Active Transit Lines</title>
 <link rel="stylesheet" href="home.css">
 </head>
 
