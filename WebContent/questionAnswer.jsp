@@ -41,28 +41,24 @@
 	<%
 	String questionss = (String) request.getParameter("question");
 	System.out.println(questionss);
-	String[] questionsArr = questionss.split(",");
 	String answerss = (String) request.getParameter("answer");
 	System.out.println(answerss);
-	String[] answerArr = answerss.split(",");
 	try{
 		ApplicationDB db = new ApplicationDB();	
 		Connection con = db.getConnection();
 		String insert = "update Question set answer = ? where question = ?;";
 		PreparedStatement insertUser = con.prepareStatement(insert);
 		
-		for(String question_it : questionsArr ){
-			for (String answer_it : answerArr) {
-				insertUser.setString(1, answer_it);
-				insertUser.setString(2, question_it);
-				try{
-					insertUser.executeUpdate();
-				}catch(Exception e){
-					System.out.println("Failed to insert " + question_it);
-					System.out.println(e);
-				}
-			}
+		insertUser.setString(1, answerss);
+		insertUser.setString(2, questionss);
+		try{
+			insertUser.executeUpdate();
+		}catch(Exception e){
+			System.out.println("Failed to insert " + questionss);
+			System.out.println(e);
 		}
+			
+		
 		System.out.println("Disconnecting from database");
 		insertUser.close();
 		con.close();
@@ -72,7 +68,7 @@
 	}%>
 	<div>
 		<h2>
-			Successfully submitted a question! Please go back to <a href="home.jsp">home</a>.
+			Successfully answered a question! Please go back to <a href="home.jsp">home</a>.
 		</h2>
 	</div>
 </body>

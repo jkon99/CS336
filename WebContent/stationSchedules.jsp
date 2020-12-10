@@ -35,7 +35,7 @@
 		if(!result.next()){
 			%>
 			<div class="errorMessage">
-			The Station ID does not exist, <a href="home.jsp">try</a> again. 
+			There exist no schedules for this station ID, <a href="home.jsp">try</a> again. 
 		    </div>
 			<% 
 			result.close();
