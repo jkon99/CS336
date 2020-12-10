@@ -41,23 +41,20 @@
 	<%
 	String questionss = (String) request.getParameter("question");
 	System.out.println(questionss);
-	String[] questionsArr = questionss.split(",");
 	try{
 		ApplicationDB db = new ApplicationDB();	
 		Connection con = db.getConnection();
 		String insert = "insert into Question values (?, ?);";
 		PreparedStatement insertUser = con.prepareStatement(insert);
-		
-		for(String question_it : questionsArr ){
-			insertUser.setString(1, question_it);
-			insertUser.setString(2, "");
-			try{
-				insertUser.executeUpdate();
-			}catch(Exception e){
-				System.out.println("Failed to insert " + question_it);
-				System.out.println(e);
-			}
+		insertUser.setString(1, questionss);
+		insertUser.setString(2, "");
+		try{
+			insertUser.executeUpdate();
+		}catch(Exception e){
+			System.out.println("Failed to insert " + questionss);
+			System.out.println(e);
 		}
+		
 		System.out.println("Disconnecting from database");
 		insertUser.close();
 		con.close();
