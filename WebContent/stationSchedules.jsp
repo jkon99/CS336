@@ -32,7 +32,7 @@
 		}
 		else{
 		result = st.executeQuery("select * from Schedule where originStationID= '"+stationID+ "' or destinationStationID= '"+stationID+"'  ");
-		if(!result.next()){
+		if(!result.isBeforeFirst()){
 			%>
 			<div class="errorMessage">
 			There exist no schedules for this station ID, <a href="home.jsp">try</a> again. 
