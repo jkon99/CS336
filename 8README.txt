@@ -1,7 +1,8 @@
-PROJECT: 
-
-
-
+PROJECT: Train reservation
+Contributers: https://github.com/jessiechoucrallah
+https://github.com/chriskyong22
+https://github.com/nicoku08
+https://github.com/jkon99
 
 
 
